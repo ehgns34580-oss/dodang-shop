@@ -267,7 +267,7 @@ q.oninput=f;document.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>
 
     # machine-readable feed + 404
     (OUT / "videos.json").write_text(json.dumps([{k: v[k] for k in ("id", "title", "type", "published", "products", "curation_url")} for v in videos], ensure_ascii=False), encoding="utf-8")
-    write("404.html", page("페이지를 찾을 수 없어요", '<section class="cta"><h2>페이지를 찾을 수 없어요</h2><a class="btn" href="/">홈으로</a></section>', ""))
+    write("404.html", page("페이지를 찾을 수 없어요", '<section class="cta"><h2>페이지를 찾을 수 없어요</h2><a class="btn" href="' + (C["base_url"] or "/") + '">홈으로</a></section>', ""))
     (OUT / ".nojekyll").write_text("")
     print(f"[build] videos={len(videos)} looks={len(looks)} products={len(all_products)} → {OUT}")
 
