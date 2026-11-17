@@ -1,0 +1,62 @@
+name: 새 영상 자동 업데이트 & 배포
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # 30분마다 새 영상 확인
+  workflow_dispatch:          # Actions 탭에서 수동 실행
+  push:
+    branches: [main]
+    paths: ["data/overrides.json", "config.json", "scripts/**", "assets/**"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 유튜브에서 새 영상 가져오기
+        id: fetch
+        env:
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}   # 선택. 없으면 RSS 사용
+        run: python scripts/fetch.py
+
+      - name: 데이터 변경분 커밋
+        run: |
+          if [ -n "$(git status --porcelain data/)" ]; then
+            git config user.name "dodang-bot"
+            git config user.email "dodang-bot@users.noreply.github.com"
+            git add data/
+            git commit -m "data: 영상 정보 업데이트 ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push
+            echo "changed=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: 사이트 빌드
+        if: env.changed == 'true' || github.event_name != 'schedule'
+        run: python scripts/build.py
+
+      - uses: actions/upload-pages-artifact@v3
+        if: env.changed == 'true' || github.event_name != 'schedule'
+        with:
+          path: site
+
+      - name: GitHub Pages 배포
+        id: deploy
+        if: env.changed == 'true' || github.event_name != 'schedule'
+        uses: actions/deploy-pages@v4
