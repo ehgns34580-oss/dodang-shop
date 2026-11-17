@@ -36,6 +36,10 @@ jobs:
         id: fetch
         run: python scripts/fetch.py
 
+      - name: Inpock link list
+        run: python scripts/inpock.py
+        continue-on-error: true
+
       - name: 브라우저 도구 준비 (큐레이터샵/채널 스캔용)
         id: need
         if: steps.fetch.outputs.new != '0' || github.event_name != 'schedule' || github.event.schedule != '*/30 * * * *'

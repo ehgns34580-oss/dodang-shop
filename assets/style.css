@@ -141,3 +141,11 @@ footer .links{display:flex;gap:18px;font-size:13px;font-weight:600}
 .sub a{text-decoration:underline}
 [hidden]{display:none!important}
 footer .fdisc{font-size:11.5px;color:var(--sub);max-width:520px}
+/* 롱폼 행: 영상 + 제품별 카드 가로 스크롤 */
+.lrow{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;padding:18px 0;border-bottom:1px solid var(--line)}
+@media(min-width:900px){.lrow{grid-template-columns:300px minmax(0,1fr);gap:20px}}
+.lhead .img{border-radius:10px;overflow:hidden;aspect-ratio:16/9}
+.lhead img{width:100%;height:100%;object-fit:cover}
+.lsecs{display:grid;grid-auto-flow:column;grid-auto-columns:140px;gap:10px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+.lsecs .card{scroll-snap-align:start}
+.lsecs .meta span{display:none}

@@ -32,6 +32,25 @@ CATEGORIES = [
     ("ACC", ["벨트", "링", "반지", "목걸이", "팔찌", "목도리", "머플러", "스카프", "비니", "모자", "캡", "양말", "장갑", "안경", "선글라스", "시계", "belt", "ring", "necklace", "beanie", "cap"]),
 ]
 CAT_ORDER = ["OUTER", "TOP", "BOTTOM", "SHOES", "BAG", "ACC", "ETC"]
+SYNONYMS = {
+    "반팔": ["반팔", "하프 슬리브", "하프슬리브", "숏 슬리브", "숏슬리브", "short sleeve", "반소매"],
+    "바람막이": ["바람막이", "윈드", "아노락", "windbreaker"],
+    "청바지": ["데님", "청바지", "denim", "jean"],
+    "바지": ["팬츠", "슬랙스", "데님", "치노", "pants"],
+    "카라": ["카라", "폴로", "collar"],
+    "긴팔": ["긴팔", "롱 슬리브", "롱슬리브", "long sleeve"],
+    "롱슬리브": ["롱 슬리브", "롱슬리브", "긴팔", "long sleeve"],
+    "신발": ["슈즈", "로퍼", "구두", "스니커즈", "운동화", "부츠", "더비"],
+    "구두": ["구두", "더비", "로퍼", "옥스포드"],
+    "가방": ["가방", "백", "bag"],
+    "셔츠": ["셔츠", "shirt"],
+    "니트": ["니트", "knit"],
+    "스트라이프": ["스트라이프", "stripe"],
+    "무지": ["무지", "베이직", "basic", "에센셜"],
+}
+TOPIC_WORDS_EXTRA = ["샌들", "바람막이", "스트라이프", "롱슬리브", "무지", "블레이저", "수트", "셋업", "로퍼", "이지팬츠", "와이드", "카고",
+                     "조거", "후드", "맨투맨", "폴로", "카라티", "반바지", "쇼츠", "모자", "비니", "안경", "시계", "목걸이", "반지", "양말",
+                     "백팩", "크로스백", "점퍼", "베스트", "체크", "옥스포드", "린넨", "스웨트"]
 TOPIC_WORDS = ["무스탕", "블루종", "발마칸", "트러커", "레더", "스웨이드", "가디건", "패딩", "경량", "코듀로이", "후리스", "플리스", "봄버", "크롭",
                "코트", "니트", "헨리넥", "셔츠", "청바지", "생지", "데님", "슬랙스", "치노", "바지", "반팔", "긴팔", "카라", "구두", "운동화", "부츠",
                "신발", "가방", "벨트", "머플러", "자켓", "아우터", "하객"]
@@ -54,6 +73,19 @@ def norm(s):
 
 def tokens(s):
     return {t for t in norm(s).split() if len(t) >= 2}
+
+
+def topic_terms(title):
+    """영상 제목 → 상품 검색어 목록 (동의어 포함)"""
+    words = [w for w in TOPIC_WORDS + TOPIC_WORDS_EXTRA if w in (title or "")]
+    if any(w not in ("코트", "자켓", "아우터", "바지") for w in words):
+        words = [w for w in words if w != "아우터"]
+    terms = []
+    for w in words:
+        for t in SYNONYMS.get(w, [w]):
+            if t not in terms:
+                terms.append(t)
+    return words, terms
 
 
 def topics(s):
@@ -105,8 +137,9 @@ def parse_sections(desc):
 
 # ---------------------------------------------------------------- matching
 class Catalog:
-    def __init__(self, data, shop_url):
+    def __init__(self, data, shop_url, inpock=None):
         self.shop_url = shop_url
+        self.inpock = inpock or []
         self.curations = data.get("curations", [])
         self.popular = data.get("popular", [])
         self.by_id = {c["id"]: c for c in self.curations}
@@ -155,6 +188,37 @@ class Catalog:
                 best, bc, score = g, c, s
         return best, bc
 
+    def by_inpock(self, title):
+        """인포크링크에 걸어둔 '영상 제목 → 큐레이션' (제목이 거의 같아야 함)"""
+        nt = norm(title)
+        best, score = None, 0
+        for it in self.inpock:
+            r = SequenceMatcher(None, nt, norm(it["title"])).ratio()
+            if r > score:
+                best, score = it, r
+        if best and score >= 0.8 and best.get("curation_id") in self.by_id:
+            return self.by_id[best["curation_id"]]
+        return None
+
+    def topic_goods(self, title, limit=12):
+        """영상 주제와 맞는 상품을 큐레이터샵 전체 상품에서 골라옴 (개별 상품 링크용)"""
+        words, terms = topic_terms(title)
+        if not terms:
+            return []
+        scored, seen = [], set()
+        for _, g, c in self.goods_index:
+            if g["goods_no"] in seen or g.get("sold_out"):
+                continue
+            name = (g["brand"] + " " + g["name"]).lower()
+            hits = sum(1 for t in terms if t.lower() in name)
+            if hits:
+                seen.add(g["goods_no"])
+                # 첫 번째(가장 구체적인) 주제어가 들어간 상품 우선
+                primary = any(t.lower() in name for t in SYNONYMS.get(words[0], [words[0]]))
+                scored.append((primary, hits, g, c))
+        scored.sort(key=lambda x: (x[0], x[1]), reverse=True)
+        return [(g, c) for _, _, g, c in scored[:limit]]
+
     def by_topic(self, title):
         t = title
         for w in TOPIC_WORDS:
@@ -182,6 +246,8 @@ def resolve_video(v, cat: Catalog, override=None):
         curation, match = cat.by_id[override["curation_id"]], "exact"
     elif alive:
         curation, match = cat.by_id[alive[0]], "exact"
+    elif cat.by_inpock(v.get("title", "")):
+        curation, match = cat.by_inpock(v.get("title", "")), "exact"
     else:
         c = cat.by_title(v.get("title", ""))
         if c:
@@ -227,10 +293,14 @@ def resolve_video(v, cat: Catalog, override=None):
         if items:
             match = "items"
         else:
-            c = cat.by_topic(v.get("title", ""))
-            if c:
-                curation, match = c, "topic"
-                items = [item_from_goods(g, cat.link(c)) for g in c["goods"]]
+            picks = cat.topic_goods(v.get("title", ""))
+            if picks:
+                match = "topic"
+                curation = cat.by_topic(v.get("title", ""))
+                items = [{**item_from_goods(g, g.get("link") or cat.link(c)), "direct": True} for g, c in picks]
+            else:
+                match = None
+                items = [{**item_from_goods(g, g.get("link") or cat.shop_url), "direct": True} for g in cat.popular]
     if override.get("products"):
         items = [{"name": p["name"], "brand": p.get("brand", ""), "image": p.get("image", ""), "price": 0, "discount": 0,
                   "category": p.get("category") or guess_category(p["name"]), "link": p.get("url") or (cat.link(curation) if curation else cat.shop_url)}

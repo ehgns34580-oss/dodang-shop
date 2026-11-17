@@ -21,7 +21,9 @@ SHOP = C["curator_shop_url"]
 def load():
     videos = json.loads((ROOT / "data" / "videos.json").read_text(encoding="utf-8"))
     cur_path = ROOT / "data" / "curations.json"
-    cat = Catalog(json.loads(cur_path.read_text(encoding="utf-8")) if cur_path.exists() else {}, SHOP)
+    ink_path = ROOT / "data" / "inpock.json"
+    inpock = json.loads(ink_path.read_text(encoding="utf-8")) if ink_path.exists() else []
+    cat = Catalog(json.loads(cur_path.read_text(encoding="utf-8")) if cur_path.exists() else {}, SHOP, inpock)
     ov_path = ROOT / "data" / "overrides.json"
     overrides = json.loads(ov_path.read_text(encoding="utf-8")) if ov_path.exists() else {}
     out = []
@@ -90,7 +92,7 @@ def primary_link(v):
     return v.get("curation_link") or SHOP
 
 
-def product_grid(items, note=True):
+def product_grid(items, note=True, hint_text=None):
     if not items:
         return ""
     cards = []
@@ -106,7 +108,9 @@ def product_grid(items, note=True):
         cards.append(ext(it["link"], f'{pic}<div class="pinfo">{brand}<span class="pname">{e(it["name"])}</span>{price}</div>', "pcard"))
     direct_only = all(it.get("direct") for it in items)
     hint = ""
-    if note:
+    if note and hint_text:
+        hint = f'<p class="hint">{e(hint_text)}</p>'
+    elif note:
         hint = ('<p class="hint">이 영상의 큐레이션이 종료되어 개별 상품 페이지로 연결돼요.</p>' if direct_only else
                 '<p class="hint">제품을 누르면 도댕 큐레이터샵에서 착장 전체를 한 번에 볼 수 있어요.</p>')
     return f'<div class="pgrid">{"".join(cards)}</div>{hint}'
@@ -126,7 +130,7 @@ def page(title, body, root, desc=None, og_image=None):
 </head><body>
 <header class="top">
   <a class="logo" href="{root}index.html">{e(C["site_name"])}</a>
-  <nav><a href="{root}looks.html">LOOK</a><a href="{root}shorts.html">SHORTS</a><a href="{root}videos.html">VIDEO</a><a href="{root}products.html">ITEMS</a></nav>
+  <nav><a href="{root}shorts.html">SHORTS</a><a href="{root}videos.html">VIDEO</a><a href="{root}products.html">ITEMS</a></nav>
   {ext(SHOP, "큐레이터샵", "shopbtn")}
 </header>
 <main>{body}</main>
@@ -184,6 +188,16 @@ def card_html(c, root=""):
   <div class="meta"><b>{e(s["label"] if s["kind"] == "look" else first)}</b><span>{e(v["title"])}</span></div></a>'''
 
 
+def long_row(v, root=""):
+    """롱폼 1개 = 영상 카드 + 제품별 카드 가로 스크롤"""
+    secs = "".join(card_html({"video": v, "sec": s, "href": f"look/{v['id']}-{k + 1}.html"}, root) for k, s in enumerate(v["sections"]))
+    q = (v["title"] + " " + " ".join(it["name"] for it in v["items"])).lower()
+    return f'''<div class="lrow searchable" data-q="{e(q)}">
+  <a class="lhead" href="{root}v/{v["id"]}.html"><div class="img h"><img loading="lazy" src="{thumb(v["id"])}" alt=""></div>
+  <div class="meta"><b>{e(v["title"])}</b><span>{fmt_date(v["published"])} · 제품 {len(v["sections"]) or len(v["items"])}개</span></div></a>
+  <div class="lsecs">{secs}</div></div>'''
+
+
 def video_card(v, root=""):
     cls = "v" if v["type"] == "shorts" else "h"
     return f'''<a class="card searchable" data-q="{e(v["title"].lower())}" href="{root}v/{v["id"]}.html">
@@ -210,13 +224,15 @@ def items_block(v, cat):
         cta = ext(SHOP, "도댕 큐레이터샵 둘러보기 ↗", "btn big")
         grid = product_grid(v["items"])
     elif v["match"] == "topic":
-        head = "이 영상과 비슷한 도댕 추천템"
-        cta = ext(link, f"‘{v['curation']['title']}’ 큐레이션 보기 ↗", "btn big")
-        grid = product_grid(v["items"][:12])
+        head = "이 영상 속 아이템, 도댕 추천 상품"
+        cur = v.get("curation")
+        cta = (ext(primary_link(v), f"큐레이터샵 ‘{cur['title']}’ 모아보기 ↗", "btn big") if cur else
+               ext(SHOP, "도댕 큐레이터샵 전체 보기 ↗", "btn big"))
+        grid = product_grid(v["items"], hint_text="영상 주제와 같은 도댕 큐레이터샵 상품이에요. 누르면 해당 상품 페이지로 이동해요.")
     else:
         head = "도댕 큐레이터샵 인기템"
-        cta = ext(SHOP, "도댕 큐레이터샵 둘러보기 ↗", "btn big")
-        grid = product_grid([{**{"name": g["name"], "brand": g["brand"], "image": g["image"], "price": g["price"], "discount": g["discount"]}, "link": SHOP} for g in cat.popular])
+        cta = ext(SHOP, "도댕 큐레이터샵 전체 보기 ↗", "btn big")
+        grid = product_grid(v["items"], hint_text="지금 도댕 큐레이터샵에서 가장 많이 보는 상품이에요.")
     return f'<div class="items-block"><h3>{e(head)}</h3>{cta}{grid}</div>'
 
 
@@ -237,20 +253,19 @@ def build():
     body = f'''
 <div class="hero" style="--bg:url('{thumb(videos[0]["id"])}')">
   <h1>{hero_title}</h1><p>{e(C["hero_sub"])}</p>
-  <div class="hero-cta"><a class="btn light" href="looks.html">코디 보러가기</a>{ext(SHOP, "도댕 큐레이터샵 ↗", "btn ghost-light")}</div>
+  <div class="hero-cta"><a class="btn light" href="shorts.html">코디 보러가기</a>{ext(SHOP, "도댕 큐레이터샵 ↗", "btn ghost-light")}</div>
   <p class="count">영상 {len(videos)}개 · 착장 정보 {sum(1 for v in videos if v["items"])}개</p>
 </div>
-{section("영상 속 코디 모아보기", "LOOK", '<div class="grid g6">' + "".join(card_html(c) for c in cards[:12]) + "</div>", "looks.html")}
 {section("지금 도댕 큐레이터샵에서 가장 많이 보는", "BEST ITEMS", product_grid(pop_items, note=False) + '<div class="center">' + ext(SHOP, "큐레이터샵 전체 보기 ↗", "btn") + "</div>") if pop_items else ""}
-{section("숏폼 영상 코디 정보 보기", "SHORTS", '<div class="grid g6">' + "".join(video_card(v) for v in shorts[:12]) + "</div>", "shorts.html")}
-{section("롱폼 영상 코디 정보 보기", "VIDEO", '<div class="grid g3">' + "".join(video_card(v) for v in longs[:6]) + "</div>", "videos.html")}
+{section("숏폼 영상 코디 정보 보기", "SHORTS", '<div class="grid g6">' + "".join(card_html({"video": v, "sec": None, "href": f"v/{v['id']}.html"}) for v in shorts[:12]) + "</div>", "shorts.html")}
+{section("롱폼 영상 · 제품별로 바로 보기", "VIDEO", "".join(long_row(v) for v in longs[:3]), "videos.html")}
 '''
     write("index.html", page(C["site_title"], body, "", og_image=thumb(videos[0]["id"])))
 
     # ---- lists
-    write("looks.html", page(f"LOOK | {C['site_title']}", section(f"영상 속 코디 {len(cards)}개", "LOOK", search_box("코디·제품·영상 제목 검색") + '<div class="grid g6">' + "".join(card_html(c) for c in cards) + "</div>"), ""))
-    write("shorts.html", page(f"SHORTS | {C['site_title']}", section(f"숏폼 {len(shorts)}개 코디 정보", "SHORTS", search_box("영상 제목 검색") + '<div class="grid g6">' + "".join(video_card(v) for v in shorts) + "</div>"), ""))
-    write("videos.html", page(f"VIDEO | {C['site_title']}", section(f"롱폼 {len(longs)}개 코디 정보", "VIDEO", search_box("영상 제목 검색") + '<div class="grid g3">' + "".join(video_card(v) for v in longs) + "</div>"), ""))
+    write("shorts.html", page(f"SHORTS | {C['site_title']}", section(f"숏폼 {len(shorts)}개 코디 정보", "SHORTS", search_box("영상 제목 검색") + '<div class="grid g6">' + "".join(card_html({"video": v, "sec": None, "href": f"v/{v['id']}.html"}) for v in shorts) + "</div>"), ""))
+    write("videos.html", page(f"VIDEO | {C['site_title']}", section(f"롱폼 {len(longs)}개 · 제품별로 바로 보기", "VIDEO", search_box("영상 제목·제품명 검색") + "".join(long_row(v) for v in longs)), ""))
+    write("looks.html", '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=shorts.html"><a href="shorts.html">SHORTS</a>')
 
     # ---- items (영상에 실제로 나온 제품, 중복 제거)
     seen, all_items = set(), []
