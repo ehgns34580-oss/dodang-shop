@@ -1,6 +1,20 @@
 # 도댕패션 착장정보 사이트
 
-유튜브에 영상이 올라오면 **30분 안에 자동으로** 착장 정보 + 무신사 큐레이터 링크 페이지가 생기는 정적 사이트입니다.
+유튜브에 영상이 올라오면 **30분 안에 자동으로** 착장 정보 페이지가 생기고, 모든 제품 클릭은 **도댕 무신사 큐레이터샵**으로 연결되는 정적 사이트입니다.
+
+### 연결 우선순위
+1. 설명란 큐레이션 링크가 큐레이터샵에 살아있으면 → 그 큐레이션
+2. 제목이 같은 큐레이션이 있으면 → 그 큐레이션
+3. 설명란 제품명이 다른 큐레이션에 있으면 → 그 큐레이션
+4. 큐레이션이 지워졌고 개별 상품 링크만 있으면 → 개별 링크 (불가피한 경우만)
+5. 아무 정보 없으면 → 같은 주제 큐레이션을 '비슷한 추천템'으로
+
+### 스크립트
+- `scripts/fetch.py` 새 영상(RSS, 30분마다) + 상세(설명란·날짜·장면 미리보기)
+- `scripts/channel.py` 채널 전체 영상 목록 스캔 (매일)
+- `scripts/curator.py` 큐레이터샵 큐레이션 + 상품 사진/가격 (3시간마다)
+- `scripts/resolve.py` 영상↔큐레이션 매칭, 롱폼 제품별 구간
+- `scripts/build.py` 사이트 생성
 서버·DB·비용 없이 GitHub Actions + GitHub Pages로 돌아갑니다.
 
 ```
@@ -46,6 +60,7 @@ https://www.musinsa.com/curator/shop/PR7sqA?curationId=...   ← 큐레이션 �
 ```json
 {
   "ZeArmCftFXo": {
+    "curation_id": "01M7J37RP7P00NM221H1R47Q0E",
     "products": [
       {"category": "OUTER", "name": "노이어 알파카 부클 맥시 코트 (브라운)", "url": "https://www.musinsa.com/curator/goods/XXXX"}
     ],
