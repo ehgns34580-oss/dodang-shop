@@ -1,70 +1,73 @@
 #!/usr/bin/env python3
-"""data/videos.json + data/overrides.json → site/ 정적 사이트 생성. 표준 라이브러리만 사용."""
+"""data/*.json → site/ 정적 사이트 생성 (표준 라이브러리만).
+모든 제품 클릭은 도댕 무신사 큐레이터샵(큐레이션)으로 연결. 큐레이션이 없을 때만 개별 상품 링크."""
 import json
 import shutil
+import sys
 from datetime import datetime
 from html import escape as e
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from resolve import CAT_ORDER, Catalog, resolve_video  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "site"
 C = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
-CATEGORY_ORDER = ["OUTER", "TOP", "BOTTOM", "SHOES", "BAG", "ACC", "ETC"]
+SHOP = C["curator_shop_url"]
 
 
 # ---------------------------------------------------------------- data
 def load():
     videos = json.loads((ROOT / "data" / "videos.json").read_text(encoding="utf-8"))
+    cur_path = ROOT / "data" / "curations.json"
+    cat = Catalog(json.loads(cur_path.read_text(encoding="utf-8")) if cur_path.exists() else {}, SHOP)
     ov_path = ROOT / "data" / "overrides.json"
     overrides = json.loads(ov_path.read_text(encoding="utf-8")) if ov_path.exists() else {}
     out = []
     for v in videos:
+        if not v.get("title") or not v.get("published"):
+            continue
         o = overrides.get(v["id"], {})
         if o.get("hidden"):
             continue
-        v = {**v, **{k: val for k, val in o.items() if k != "looks"}, "_override_looks": o.get("looks")}
-        v.setdefault("products", [])
+        resolve_video(v, cat, o)
         v["model_stats"] = v.get("model_stats") or C["default_model_stats"]
         out.append(v)
-    return out
-
-
-def build_looks(videos):
-    looks = []
-    for v in videos:
-        by_url = {p["url"]: p for p in v["products"]}
-        if v.get("_override_looks"):
-            for i, lk in enumerate(v["_override_looks"]):
-                looks.append({"id": f"{v['id']}-{i+1}", "video": v, "t": lk.get("t", 0), "label": lk.get("label", f"LOOK {i+1}"), "products": lk.get("products", []), "image": lk.get("image")})
-        elif v["type"] == "video" and v.get("looks"):
-            for i, lk in enumerate(v["looks"]):
-                prods = [by_url[lk["product_url"]]] if lk.get("product_url") in by_url else []
-                looks.append({"id": f"{v['id']}-{i+1}", "video": v, "t": lk["t"], "label": lk["label"], "products": prods})
-        else:
-            looks.append({"id": v["id"], "video": v, "t": 0, "label": v["title"], "products": v["products"]})
-    return looks
+    out.sort(key=lambda v: v["published"], reverse=True)
+    return out, cat
 
 
 # ---------------------------------------------------------------- helpers
-def thumb(vid, frame=None):
-    # frame 1/2/3 = 유튜브 자동 생성 프레임(영상 25/50/75% 지점)
-    return f"https://i.ytimg.com/vi/{vid}/{'hq' + str(frame) if frame else 'hqdefault'}.jpg"
+def thumb(vid):
+    return f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
 
 
-def look_img(lk):
-    if lk.get("image"):
-        return lk["image"]
-    v = lk["video"]
-    if v["type"] != "video" or not v.get("chapters"):
-        return thumb(v["id"])
-    dur = max(c["t"] for c in v["chapters"]) + 30
-    frac = lk["t"] / dur
-    return thumb(v["id"], 1 if frac < 0.375 else 2 if frac < 0.625 else 3)
+def img(url, w=390):
+    if not url:
+        return ""
+    return url.split("?")[0] + f"?w={w}" if "msscdn.net" in url else url
+
+
+def frame_style(v, t):
+    """유튜브 스토리보드(장면 미리보기)에서 t초 장면을 잘라 CSS 배경으로"""
+    sb = v.get("storyboard")
+    if not sb:
+        return f"background-image:url('{thumb(v['id'])}');background-size:cover;background-position:center"
+    per = sb["cols"] * sb["rows"]
+    idx = max(0, min(sb["count"] - 1, int(t * 1000 // sb["interval"])))
+    sheet, pos = divmod(idx, per)
+    col, row = pos % sb["cols"], pos // sb["cols"]
+    url = sb["url"].replace("$M", str(sheet))
+    x = col / (sb["cols"] - 1) * 100 if sb["cols"] > 1 else 0
+    y = row / (sb["rows"] - 1) * 100 if sb["rows"] > 1 else 0
+    return f"background-image:url('{url}');background-size:{sb['cols'] * 100}% {sb['rows'] * 100}%;background-position:{x:.2f}% {y:.2f}%"
 
 
 def yt_url(v, t=0):
-    base = f"https://www.youtube.com/shorts/{v['id']}" if v["type"] == "shorts" else f"https://www.youtube.com/watch?v={v['id']}"
-    return base + (f"&t={t}s" if t and v["type"] != "shorts" else "")
+    if v["type"] == "shorts":
+        return f"https://www.youtube.com/shorts/{v['id']}"
+    return f"https://www.youtube.com/watch?v={v['id']}" + (f"&t={t}s" if t else "")
 
 
 def fmt_date(iso):
@@ -75,46 +78,43 @@ def fmt_t(t):
     return f"{t // 60:02d}:{t % 60:02d}"
 
 
-def ext_link(url, inner, cls=""):
-    return f'<a href="{e(url)}" target="_blank" rel="noopener sponsored" class="{cls}">{inner}</a>'
+def won(n):
+    return f"{n:,}원" if n else ""
 
 
-def group_products(products):
-    groups = {}
-    for p in products:
-        groups.setdefault(p.get("category") or "ETC", []).append(p)
-    return [(c, groups[c]) for c in CATEGORY_ORDER if c in groups]
+def ext(url, inner, cls="", extra=""):
+    return f'<a href="{e(url)}" target="_blank" rel="noopener sponsored" class="{cls}" {extra}>{inner}</a>'
 
 
-def product_table(products, curation_url=None):
-    if not products:
-        if curation_url:
-            return f'''<div class="empty">착장 제품은 무신사 큐레이션에서 순서대로 확인할 수 있어요.
-              {ext_link(curation_url, "무신사 큐레이션에서 착장 보기 ↗", "btn")}</div>'''
-        return '<div class="empty">착장 정보 준비 중이에요.</div>'
-    rows = []
-    for cat, items in group_products(products):
-        lis = "".join(f'<li>{ext_link(p["url"], e(p["name"]) + "<span class=arrow>↗</span>")}</li>' for p in items)
-        rows.append(f'<div class="cat-row"><h4>{cat}</h4><ul>{lis}</ul></div>')
-    return '<div class="ptable">' + "".join(rows) + "</div>"
+def primary_link(v):
+    return v.get("curation_link") or SHOP
+
+
+def product_grid(items, note=True):
+    if not items:
+        return ""
+    cards = []
+    for it in items:
+        price = ""
+        if it.get("price"):
+            disc = f'<b class="disc">{it["discount"]}%</b>' if it.get("discount") else ""
+            price = f'<span class="price">{disc}{won(it["price"])}</span>'
+        pic = (f'<div class="pimg"><img loading="lazy" src="{e(img(it["image"]))}" alt="{e(it["name"])}">'
+               + ('<span class="soldout">품절</span>' if it.get("sold_out") else "") + "</div>") if it.get("image") else \
+            f'<div class="pimg noimg"><span>{e(it.get("category") or "ITEM")}</span></div>'
+        brand = f'<span class="brand">{e(it["brand"])}</span>' if it.get("brand") else f'<span class="brand">{e(it.get("category") or "")}</span>'
+        cards.append(ext(it["link"], f'{pic}<div class="pinfo">{brand}<span class="pname">{e(it["name"])}</span>{price}</div>', "pcard"))
+    direct_only = all(it.get("direct") for it in items)
+    hint = ""
+    if note:
+        hint = ('<p class="hint">이 영상의 큐레이션이 종료되어 개별 상품 페이지로 연결돼요.</p>' if direct_only else
+                '<p class="hint">제품을 누르면 도댕 큐레이터샵에서 착장 전체를 한 번에 볼 수 있어요.</p>')
+    return f'<div class="pgrid">{"".join(cards)}</div>{hint}'
 
 
 def page(title, body, root, desc=None, og_image=None):
     desc = desc or C["hero_sub"]
     og = f'<meta property="og:image" content="{e(og_image)}">' if og_image else ""
-    nav = f'''
-<header class="top">
-  <a class="logo" href="{root}index.html">{e(C["site_name"])}</a>
-  <nav>
-    <a href="{root}looks.html">LOOK</a><a href="{root}shorts.html">SHORTS</a><a href="{root}videos.html">VIDEO</a><a href="{root}products.html">ITEMS</a>
-  </nav>
-</header>'''
-    foot = f'''
-<footer>
-  <div class="logo">{e(C["site_name"])}</div>
-  <div class="links">{ext_link(C["youtube_url"], "YouTube")}{ext_link(C["instagram_url"], "Instagram")}{ext_link(C["curator_shop_url"], "무신사 큐레이터샵")}</div>
-  <p class="disc">{e(C["disclosure"])}</p>
-</footer>'''
     return f'''<!doctype html>
 <html lang="ko"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -123,35 +123,72 @@ def page(title, body, root, desc=None, og_image=None):
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}">{og}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="{root}assets/style.css">
-</head><body>{nav}<main>{body}</main>{foot}</body></html>'''
+</head><body>
+<header class="top">
+  <a class="logo" href="{root}index.html">{e(C["site_name"])}</a>
+  <nav><a href="{root}looks.html">LOOK</a><a href="{root}shorts.html">SHORTS</a><a href="{root}videos.html">VIDEO</a><a href="{root}products.html">ITEMS</a></nav>
+  {ext(SHOP, "큐레이터샵", "shopbtn")}
+</header>
+<main>{body}</main>
+<footer>
+  <div class="logo">{e(C["site_name"])}</div>
+  <div class="links">{ext(C["youtube_url"], "YouTube")}{ext(C["instagram_url"], "Instagram")}{ext(SHOP, "무신사 큐레이터샵")}</div>
+  <p class="fdisc">{e(C["disclosure"])}</p>
+</footer>
+<script src="{root}assets/app.js"></script>
+</body></html>'''
 
 
-def look_card(lk, root):
-    v = lk["video"]
-    badge = "SHORTS" if v["type"] == "shorts" else lk["label"]
-    return f'''<a class="card look" href="{root}look/{lk["id"]}.html">
-  <div class="img {"v" if v["type"] == "shorts" else "h"}"><img loading="lazy" src="{e(look_img(lk))}" alt=""><span class="badge">{e(badge)}</span></div>
-  <div class="meta"><b>{e(v["title"] if v["type"] == "shorts" else lk["label"])}</b><span>{f"{len(lk['products'])} items" if lk["products"] else ("무신사 큐레이션" if v.get("curation_url") else "착장정보 준비 중")}</span></div>
-</a>'''
-
-
-def video_card(v, root):
-    cls = "v" if v["type"] == "shorts" else "h"
-    return f'''<a class="card" href="{root}v/{v["id"]}.html">
-  <div class="img {cls}"><img loading="lazy" src="{thumb(v["id"])}" alt=""></div>
-  <div class="meta"><b>{e(v["title"])}</b><span>{fmt_date(v["published"])}</span></div>
-</a>'''
-
-
-def section(eyebrow, title, inner, more_href=None, root=""):
+def section(eyebrow, title, inner, more_href=None, root="", cls=""):
     more = f'<a class="more" href="{root}{more_href}">더보기 →</a>' if more_href else ""
-    return f'<section><div class="sec-head"><p>{e(eyebrow)}</p><h2>{e(title)}</h2>{more}</div>{inner}</section>'
+    return f'<section class="{cls}"><div class="sec-head"><p>{e(eyebrow)}</p><h2>{e(title)}</h2>{more}</div>{inner}</section>'
 
 
 def embed(v, t=0):
-    start = f"?start={t}" if t else ""
+    q = f"?enablejsapi=1&rel=0&playsinline=1" + (f"&start={t}" if t else "")
     ratio = "v" if v["type"] == "shorts" else "h"
-    return f'<div class="embed {ratio}"><iframe src="https://www.youtube-nocookie.com/embed/{v["id"]}{start}" title="{e(v["title"])}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>'
+    return f'<div class="embed {ratio}"><iframe id="yt" src="https://www.youtube.com/embed/{v["id"]}{q}" title="{e(v["title"])}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>'
+
+
+def search_box(placeholder):
+    return f'<div class="filters"><input class="q" type="search" placeholder="{e(placeholder)}" data-target=".searchable"></div>'
+
+
+# ---------------------------------------------------------------- cards
+def look_cards(videos):
+    """LOOK 목록: 숏폼 1개 = 카드 1개, 롱폼은 제품 설명 구간마다 카드 1개"""
+    cards = []
+    for v in videos:
+        if v["type"] == "video" and v["sections"]:
+            for i, s in enumerate(v["sections"]):
+                cards.append({"video": v, "sec": s, "href": f"look/{v['id']}-{i + 1}.html", "idx": i})
+        else:
+            cards.append({"video": v, "sec": None, "href": f"v/{v['id']}.html"})
+    return cards
+
+
+def card_html(c, root=""):
+    v, s = c["video"], c["sec"]
+    if s is None:
+        n = len(v["items"])
+        sub = f"착장 {n}개" if n and v["match"] not in ("topic", None) else ("비슷한 추천템" if v["match"] == "topic" else "영상 보기")
+        return f'''<a class="card searchable" data-q="{e(v["title"].lower())}" href="{root}{c["href"]}">
+  <div class="img v"><img loading="lazy" src="{thumb(v["id"])}" alt=""><span class="badge">SHORTS</span></div>
+  <div class="meta"><b>{e(v["title"])}</b><span>{sub}</span></div></a>'''
+    pic = next((it["image"] for it in s["items"] if it.get("image")), "")
+    inner = (f'<img loading="lazy" src="{e(img(pic))}" alt="" class="prod">' if pic else
+             f'<div class="frame" style="{frame_style(v, s["t"] + 12)}"></div>')
+    first = s["items"][0]["name"] if s["items"] else v["title"]
+    return f'''<a class="card searchable" data-q="{e((s["label"] + " " + v["title"]).lower())}" href="{root}{c["href"]}">
+  <div class="img p">{inner}<span class="badge">{fmt_t(s["t"])}</span></div>
+  <div class="meta"><b>{e(s["label"] if s["kind"] == "look" else first)}</b><span>{e(v["title"])}</span></div></a>'''
+
+
+def video_card(v, root=""):
+    cls = "v" if v["type"] == "shorts" else "h"
+    return f'''<a class="card searchable" data-q="{e(v["title"].lower())}" href="{root}v/{v["id"]}.html">
+  <div class="img {cls}"><img loading="lazy" src="{thumb(v["id"])}" alt=""></div>
+  <div class="meta"><b>{e(v["title"])}</b><span>{fmt_date(v["published"])}</span></div></a>'''
 
 
 # ---------------------------------------------------------------- pages
@@ -161,115 +198,136 @@ def write(path, html):
     p.write_text(html, encoding="utf-8")
 
 
+def items_block(v, cat):
+    """영상 상세의 '착용 제품' 블록 (매칭 종류별 문구)"""
+    link = primary_link(v)
+    if v["match"] in ("exact", "title", "manual"):
+        head = "착용 제품"
+        cta = ext(link, "도댕 큐레이터샵에서 착장 한 번에 보기 ↗", "btn big")
+        grid = product_grid(v["items"])
+    elif v["match"] == "items":
+        head = "착용 제품"
+        cta = ext(SHOP, "도댕 큐레이터샵 둘러보기 ↗", "btn big")
+        grid = product_grid(v["items"])
+    elif v["match"] == "topic":
+        head = "이 영상과 비슷한 도댕 추천템"
+        cta = ext(link, f"‘{v['curation']['title']}’ 큐레이션 보기 ↗", "btn big")
+        grid = product_grid(v["items"][:12])
+    else:
+        head = "도댕 큐레이터샵 인기템"
+        cta = ext(SHOP, "도댕 큐레이터샵 둘러보기 ↗", "btn big")
+        grid = product_grid([{**{"name": g["name"], "brand": g["brand"], "image": g["image"], "price": g["price"], "discount": g["discount"]}, "link": SHOP} for g in cat.popular])
+    return f'<div class="items-block"><h3>{e(head)}</h3>{cta}{grid}</div>'
+
+
 def build():
-    videos = load()
-    looks = build_looks(videos)
+    videos, cat = load()
     shorts = [v for v in videos if v["type"] == "shorts"]
     longs = [v for v in videos if v["type"] == "video"]
-
-    all_products, seen = [], set()
-    for v in videos:
-        for p in v["products"]:
-            if p["url"] not in seen:
-                seen.add(p["url"])
-                all_products.append({**p, "video": v})
+    cards = look_cards(videos)
 
     if OUT.exists():
         shutil.rmtree(OUT)
     shutil.copytree(ROOT / "assets", OUT / "assets")
 
-    # index
+    pop_items = [{"name": g["name"], "brand": g["brand"], "image": g["image"], "price": g["price"], "discount": g["discount"], "link": SHOP} for g in cat.popular]
+
+    # ---- index
     hero_title = "<br>".join(e(x) for x in C["hero_title"].split("\n"))
-    latest_items = "".join(
-        f'<li><span class="n">{i+1}</span>{ext_link(p["url"], "<em>" + p["category"] + "</em>" + e(p["name"]))}</li>'
-        for i, p in enumerate(all_products[:8]))
     body = f'''
-<div class="hero" style="--bg:url('{thumb(videos[0]["id"]) if videos else ""}')">
+<div class="hero" style="--bg:url('{thumb(videos[0]["id"])}')">
   <h1>{hero_title}</h1><p>{e(C["hero_sub"])}</p>
-  <a class="btn light" href="looks.html">착용 제품과 구매 링크 보기</a>
+  <div class="hero-cta"><a class="btn light" href="looks.html">코디 보러가기</a>{ext(SHOP, "도댕 큐레이터샵 ↗", "btn ghost-light")}</div>
+  <p class="count">영상 {len(videos)}개 · 착장 정보 {sum(1 for v in videos if v["items"])}개</p>
 </div>
-{section("영상 속 코디 모아보기", "LOOK", '<div class="grid g6">' + "".join(look_card(l, "") for l in looks[:12]) + "</div>", "looks.html")}
-{section("최근 영상 착용 제품", "NEW ITEMS", f'<ol class="rank">{latest_items}</ol>', "products.html") if all_products else ""}
-{section("숏폼 영상 코디 정보 보기", "SHORTS", '<div class="grid g6">' + "".join(video_card(v, "") for v in shorts[:12]) + "</div>", "shorts.html")}
-{section("롱폼 영상 코디 정보 보기", "VIDEO", '<div class="grid g3">' + "".join(video_card(v, "") for v in longs[:6]) + "</div>", "videos.html")}
-<section class="cta">{ext_link(C["curator_shop_url"], "도댕패션 무신사 큐레이터샵 전체 보기 ↗", "btn")}</section>
+{section("영상 속 코디 모아보기", "LOOK", '<div class="grid g6">' + "".join(card_html(c) for c in cards[:12]) + "</div>", "looks.html")}
+{section("지금 도댕 큐레이터샵에서 가장 많이 보는", "BEST ITEMS", product_grid(pop_items, note=False) + '<div class="center">' + ext(SHOP, "큐레이터샵 전체 보기 ↗", "btn") + "</div>") if pop_items else ""}
+{section("숏폼 영상 코디 정보 보기", "SHORTS", '<div class="grid g6">' + "".join(video_card(v) for v in shorts[:12]) + "</div>", "shorts.html")}
+{section("롱폼 영상 코디 정보 보기", "VIDEO", '<div class="grid g3">' + "".join(video_card(v) for v in longs[:6]) + "</div>", "videos.html")}
 '''
-    write("index.html", page(C["site_title"], body, "", og_image=thumb(videos[0]["id"]) if videos else None))
+    write("index.html", page(C["site_title"], body, "", og_image=thumb(videos[0]["id"])))
 
-    # list pages
-    write("looks.html", page(f"LOOK | {C['site_title']}", section("영상 속 코디 모아보기", "LOOK", '<div class="grid g6">' + "".join(look_card(l, "") for l in looks) + "</div>"), ""))
-    write("shorts.html", page(f"SHORTS | {C['site_title']}", section("숏폼 영상 코디 정보", "SHORTS", '<div class="grid g6">' + "".join(video_card(v, "") for v in shorts) + "</div>"), ""))
-    write("videos.html", page(f"VIDEO | {C['site_title']}", section("롱폼 영상 코디 정보", "VIDEO", '<div class="grid g3">' + "".join(video_card(v, "") for v in longs) + "</div>"), ""))
+    # ---- lists
+    write("looks.html", page(f"LOOK | {C['site_title']}", section(f"영상 속 코디 {len(cards)}개", "LOOK", search_box("코디·제품·영상 제목 검색") + '<div class="grid g6">' + "".join(card_html(c) for c in cards) + "</div>"), ""))
+    write("shorts.html", page(f"SHORTS | {C['site_title']}", section(f"숏폼 {len(shorts)}개 코디 정보", "SHORTS", search_box("영상 제목 검색") + '<div class="grid g6">' + "".join(video_card(v) for v in shorts) + "</div>"), ""))
+    write("videos.html", page(f"VIDEO | {C['site_title']}", section(f"롱폼 {len(longs)}개 코디 정보", "VIDEO", search_box("영상 제목 검색") + '<div class="grid g3">' + "".join(video_card(v) for v in longs) + "</div>"), ""))
 
-    chips = "".join(f'<button data-c="{c}">{c}</button>' for c in CATEGORY_ORDER if any(p["category"] == c for p in all_products))
-    items = "".join(
-        f'<li data-c="{p["category"]}" data-q="{e(p["name"].lower())}">{ext_link(p["url"], "<em>" + p["category"] + "</em><b>" + e(p["name"]) + "</b>")}'
-        f'<a class="from" href="v/{p["video"]["id"]}.html">{e(p["video"]["title"])}</a></li>'
-        for p in all_products)
-    body = section("영상에 나온 모든 제품", "ITEMS", f'''
-<div class="filters"><input id="q" type="search" placeholder="제품명 검색"><div class="chips"><button data-c="" class="on">ALL</button>{chips}</div></div>
-<ul class="items" id="items">{items}</ul>
-<script>
-(()=>{{const q=document.getElementById('q'),lis=[...document.querySelectorAll('#items li')];let c='';
-const f=()=>{{const s=q.value.trim().toLowerCase();lis.forEach(li=>li.hidden=!((!c||li.dataset.c===c)&&(!s||li.dataset.q.includes(s))))}};
-q.oninput=f;document.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{{document.querySelectorAll('.chips button').forEach(x=>x.classList.remove('on'));b.classList.add('on');c=b.dataset.c;f()}});}})();
-</script>''')
+    # ---- items (영상에 실제로 나온 제품, 중복 제거)
+    seen, all_items = set(), []
+    for v in videos:
+        if v["match"] in ("topic", None):
+            continue
+        for it in v["items"]:
+            key = (it.get("brand", ""), it["name"])
+            if key in seen:
+                continue
+            seen.add(key)
+            all_items.append({**it, "video": v})
+    chips = "".join(f'<button data-c="{c}">{c}</button>' for c in CAT_ORDER if any(i["category"] == c for i in all_items))
+    grid = "".join(
+        f'<div class="searchable" data-c="{it["category"]}" data-q="{e((it.get("brand", "") + " " + it["name"]).lower())}">' + product_grid([it], note=False)
+        + f'<a class="from" href="v/{it["video"]["id"]}.html">▶ {e(it["video"]["title"])}</a></div>'
+        for it in all_items)
+    body = section(f"영상에 나온 제품 {len(all_items)}개", "ITEMS", f'''
+<div class="filters"><input class="q" type="search" placeholder="브랜드·제품명 검색" data-target=".searchable">
+<div class="chips"><button data-c="" class="on">ALL</button>{chips}</div></div>
+<div class="items-grid">{grid}</div>
+<p class="hint">제품을 누르면 도댕 큐레이터샵 큐레이션으로 이동해요.</p>''')
     write("products.html", page(f"ITEMS | {C['site_title']}", body, ""))
 
-    # video detail
+    # ---- video detail
     for i, v in enumerate(videos):
-        vlooks = [l for l in looks if l["video"]["id"] == v["id"]]
-        look_list = ""
-        if v["type"] == "video" and vlooks:
-            look_list = section("사진을 클릭하면 코디별 착장 제품을 확인할 수 있어요", "코디 모아보기",
-                                '<div class="grid g4">' + "".join(
-                                    f'<a class="card look" href="../look/{l["id"]}.html"><div class="img h"><img loading="lazy" src="{e(look_img(l))}" alt=""><span class="badge">{fmt_t(l["t"])}</span></div><div class="meta"><b>{e(l["label"])}</b><span>{e(l["products"][0]["name"]) if l["products"] else ""}</span></div></a>'
-                                    for l in vlooks) + "</div>")
-        cur_btn = ext_link(v["curation_url"], "무신사 큐레이션 ↗", "btn ghost") if v.get("curation_url") else ""
+        chapters = ""
+        if v["type"] == "video" and v["sections"]:
+            chapters = section("누르면 해당 제품 설명부터 재생돼요", "제품별로 보기",
+                               '<div class="grid g4">' + "".join(card_html({"video": v, "sec": s, "href": f"look/{v['id']}-{k + 1}.html"}, "../")
+                                                                  for k, s in enumerate(v["sections"])) + "</div>")
         prev_v = videos[i - 1] if i > 0 else None
         next_v = videos[i + 1] if i + 1 < len(videos) else None
-        pager = '<div class="pager">' + (f'<a href="{prev_v["id"]}.html">← 이전 영상</a>' if prev_v else "<span></span>") + (f'<a href="{next_v["id"]}.html">다음 영상 →</a>' if next_v else "") + "</div>"
+        pager = '<div class="pager">' + (f'<a href="{prev_v["id"]}.html">← 최신 영상</a>' if prev_v else "<span></span>") + (f'<a href="{next_v["id"]}.html">이전 영상 →</a>' if next_v else "") + "</div>"
         body = f'''
 <div class="detail">
   {embed(v)}
   <div class="info">
     <span class="tag">{"SHORTS" if v["type"] == "shorts" else "VIDEO"}</span>
     <h1>{e(v["title"])}</h1>
-    <p class="sub">{fmt_date(v["published"])} · 착용 제품 정보 [{e(v["model_stats"])}]</p>
-    <div class="actions">{ext_link(yt_url(v), "▶ 영상 보러가기", "btn")}{cur_btn}</div>
-    <p class="hint">제품명을 누르면 구매 페이지로 이동합니다.</p>
-    {product_table(v["products"], v.get("curation_url"))}
+    <p class="sub">{fmt_date(v["published"])} · 모델 {e(v["model_stats"])}</p>
+    {items_block(v, cat)}
+    <div class="actions">{ext(yt_url(v), "▶ 유튜브에서 보기", "btn ghost")}</div>
   </div>
 </div>
-{look_list}{pager}'''
-        write(f"v/{v['id']}.html", page(f"{v['title']} | {C['site_title']}", body, "../", desc=f"{v['title']} 착장 정보 · 무신사 구매 링크", og_image=thumb(v["id"])))
+{chapters}{pager}'''
+        write(f"v/{v['id']}.html", page(f"{v['title']} | {C['site_title']}", body, "../", desc=f"{v['title']} 착장 정보 · 도댕 무신사 큐레이터샵", og_image=thumb(v["id"])))
 
-    # look detail
-    for i, l in enumerate(looks):
-        v = l["video"]
-        prev_l = looks[i - 1] if i > 0 else None
-        next_l = looks[i + 1] if i + 1 < len(looks) else None
-        pager = '<div class="pager">' + (f'<a href="{prev_l["id"]}.html">← 이전 코디</a>' if prev_l else "<span></span>") + (f'<a href="{next_l["id"]}.html">다음 코디 →</a>' if next_l else "") + "</div>"
-        title = l["label"] if v["type"] == "video" else v["title"]
-        body = f'''
+    # ---- long-form section (제품 설명 시작 시점)
+    for v in longs:
+        secs = v["sections"]
+        for k, s in enumerate(secs):
+            prev_s = f'<a href="{v["id"]}-{k}.html">← 이전 제품</a>' if k > 0 else "<span></span>"
+            next_s = f'<a href="{v["id"]}-{k + 2}.html">다음 제품 →</a>' if k + 1 < len(secs) else ""
+            subs = "".join(f'<button class="seek" data-t="{x["t"]}">▶ {fmt_t(x["t"])} {e(x["label"])}</button>' for x in s["sub"])
+            link = s["link"] or primary_link(v)
+            title = s["label"] if s["kind"] == "look" else (s["items"][0]["name"] if s["items"] else s["label"])
+            body = f'''
 <div class="detail">
-  {embed(v, l["t"])}
+  {embed(v, s["t"])}
   <div class="info">
-    <span class="tag">{e(l["label"]) if v["type"] == "video" else "SHORTS"}</span>
+    <span class="tag">{fmt_t(s["t"])} · {"LOOK" if s["kind"] == "look" else "ITEM"}</span>
     <h1>{e(title)}</h1>
-    <p class="sub">착용 제품 정보 [{e(v["model_stats"])}]</p>
-    <p class="hint">제품명을 누르면 구매 페이지로 이동합니다.<br>{e(C["disclosure"])}</p>
-    {product_table(l["products"], v.get("curation_url"))}
-    <div class="actions">{ext_link(yt_url(v, l["t"]), "▶ 이 코디 영상에서 보기", "btn")}<a class="btn ghost" href="../v/{v["id"]}.html">영상 전체 착장 보기</a></div>
+    <p class="sub"><a href="../v/{v["id"]}.html">{e(v["title"])}</a></p>
+    <div class="seeks"><button class="seek" data-t="{s["t"]}">▶ {fmt_t(s["t"])} 설명 처음부터</button>{subs}</div>
+    <div class="items-block"><h3>착용 제품</h3>{ext(link, "도댕 큐레이터샵에서 보기 ↗", "btn big")}{product_grid(s["items"]) if s["items"] else ""}</div>
   </div>
-</div>{pager}'''
-        write(f"look/{l['id']}.html", page(f"{title} | {C['site_title']}", body, "../", og_image=thumb(v["id"])))
+</div>
+<div class="pager">{prev_s}{next_s}</div>'''
+            write(f"look/{v['id']}-{k + 1}.html", page(f"{title} | {C['site_title']}", body, "../", og_image=img(s["items"][0]["image"]) if s["items"] and s["items"][0].get("image") else thumb(v["id"])))
 
-    # machine-readable feed + 404
-    (OUT / "videos.json").write_text(json.dumps([{k: v[k] for k in ("id", "title", "type", "published", "products", "curation_url")} for v in videos], ensure_ascii=False), encoding="utf-8")
-    write("404.html", page("페이지를 찾을 수 없어요", '<section class="cta"><h2>페이지를 찾을 수 없어요</h2><a class="btn" href="' + (C["base_url"] or "/") + '">홈으로</a></section>', ""))
+    write("404.html", page("페이지를 찾을 수 없어요", '<section class="cta"><h2>페이지를 찾을 수 없어요</h2><a class="btn" href="' + (C.get("base_url") or "/") + '">홈으로</a></section>', ""))
     (OUT / ".nojekyll").write_text("")
-    print(f"[build] videos={len(videos)} looks={len(looks)} products={len(all_products)} → {OUT}")
+    stats = {}
+    for v in videos:
+        stats[v["match"]] = stats.get(v["match"], 0) + 1
+    print(f"[build] videos={len(videos)} (shorts {len(shorts)}, long {len(longs)}) cards={len(cards)} items={len(all_items)} match={stats}")
 
 
 if __name__ == "__main__":

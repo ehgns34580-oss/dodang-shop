@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """유튜브 채널의 새 영상을 가져와 설명란에서 착장/무신사 링크를 파싱해 data/videos.json 에 누적 저장.
 
-- 기본: YouTube RSS (키 불필요, 최근 15개)
-- 환경변수 YT_API_KEY 가 있으면 YouTube Data API 로 전체 업로드 목록을 가져옴 (과거 영상 백필)
+- YouTube RSS 로 최신 영상 감지 (30분마다)
+- data/channel_ids.json(scripts/channel.py 가 채널 전체를 스캔한 결과)에 있는 과거 영상도 모두 포함
+- 상세정보(설명란·날짜·장면 썸네일)는 영상 시청 페이지에서 1회만 읽고 저장
 외부 라이브러리 없이 표준 라이브러리만 사용.
 """
 import json
@@ -155,68 +156,99 @@ def from_rss(channel_id: str) -> list:
     return out
 
 
-def from_api(channel_id: str, key: str, max_pages: int = 20) -> list:
-    uploads = "UU" + channel_id[2:]
-    out, token = [], ""
-    for _ in range(max_pages):
-        q = urllib.parse.urlencode({"part": "snippet", "playlistId": uploads, "maxResults": 50, "key": key, "pageToken": token})
-        d = json.loads(http_get(f"https://www.googleapis.com/youtube/v3/playlistItems?{q}"))
-        ids = [it["snippet"]["resourceId"]["videoId"] for it in d.get("items", [])]
-        # 길이로 shorts 판별 (<=180초)
-        durations = {}
-        if ids:
-            q2 = urllib.parse.urlencode({"part": "contentDetails", "id": ",".join(ids), "key": key})
-            for v in json.loads(http_get(f"https://www.googleapis.com/youtube/v3/videos?{q2}")).get("items", []):
-                durations[v["id"]] = iso_duration(v["contentDetails"]["duration"])
-        for it in d.get("items", []):
-            sn = it["snippet"]
-            vid = sn["resourceId"]["videoId"]
-            if sn.get("title") in ("Private video", "Deleted video"):
-                continue
-            out.append({
-                "id": vid,
-                "title": sn["title"],
-                "published": sn["publishedAt"],
-                "description": sn.get("description", ""),
-                "type": "shorts" if durations.get(vid, 999) <= 180 else "video",
-            })
-        token = d.get("nextPageToken")
-        if not token:
-            break
-    return out
+def from_watch(vid: str) -> dict:
+    """영상 시청 페이지에서 제목·설명·업로드일·길이·스토리보드(장면 썸네일) 정보를 읽음"""
+    html = http_get(f"https://www.youtube.com/watch?v={vid}&hl=ko").decode("utf-8", "replace")
+    marker = "var ytInitialPlayerResponse = "
+    i = html.find(marker)
+    if i < 0:
+        raise ValueError("playerResponse 없음")
+    j, _ = json.JSONDecoder().raw_decode(html[i + len(marker):])
+    vd = j.get("videoDetails") or {}
+    mf = (j.get("microformat") or {}).get("playerMicroformatRenderer") or {}
+    if not vd.get("title"):
+        raise ValueError(j.get("playabilityStatus", {}).get("reason", "비공개/삭제"))
+    return {
+        "id": vid,
+        "title": vd["title"],
+        "description": vd.get("shortDescription", ""),
+        "published": mf.get("publishDate") or mf.get("uploadDate") or "",
+        "length": int(vd.get("lengthSeconds") or 0),
+        "storyboard": parse_storyboard((j.get("storyboards") or {}).get("playerStoryboardSpecRenderer", {}).get("spec", "")),
+    }
 
 
-def iso_duration(s: str) -> int:
-    m = re.match(r"P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", s)
-    d, h, mi, se = (int(x or 0) for x in m.groups())
-    return d * 86400 + h * 3600 + mi * 60 + se
+def parse_storyboard(spec: str):
+    """가장 고해상도 스토리보드 레벨 → 시트 URL 템플릿/격자 정보"""
+    if not spec:
+        return None
+    parts = spec.split("|")
+    base = parts[0]
+    lv = len(parts) - 2
+    w, h, count, cols, rows, interval, name, sigh = parts[-1].split("#")
+    url = base.replace("$L", str(lv)).replace("$N", name) + "&sigh=" + sigh
+    return {"url": url, "w": int(w), "h": int(h), "count": int(count), "cols": int(cols), "rows": int(rows), "interval": int(interval) or 5000}
+
+
+def iso_utc(s: str) -> str:
+    from datetime import datetime, timezone
+    return datetime.fromisoformat(s).astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S+00:00")
 
 
 # ---------------------------------------------------------------- main
 def main():
-    key = os.environ.get("YT_API_KEY", "").strip()
-    try:
-        raw = from_api(CONFIG["channel_id"], key) if key else from_rss(CONFIG["channel_id"])
-    except Exception as exc:  # 네트워크 실패 시 기존 데이터 유지
-        print(f"[fetch] 실패: {exc}", file=sys.stderr)
-        sys.exit(0 if DATA.exists() else 1)
+    import time
 
     db = {}
     if DATA.exists():
         db = {v["id"]: v for v in json.loads(DATA.read_text(encoding="utf-8"))}
+    known = len(db)
 
-    new = 0
-    for v in raw:
-        if v["id"] not in db:
-            new += 1
-        prev = db.get(v["id"], {})
-        parsed = parse_description(v["description"])
-        db[v["id"]] = {**prev, **v, **parsed}
+    # 1) RSS: 최신 15개 (빠름)
+    try:
+        for v in from_rss(CONFIG["channel_id"]):
+            db[v["id"]] = {**db.get(v["id"], {}), **v}
+    except Exception as exc:
+        print(f"[fetch] RSS 실패: {exc}", file=sys.stderr)
 
-    videos = sorted(db.values(), key=lambda x: x["published"], reverse=True)
+    # 2) 채널 전체 목록(scripts/channel.py 결과)에서 아직 없는 영상 추가
+    ch_path = ROOT / "data" / "channel_ids.json"
+    shorts_ids = set()
+    if ch_path.exists():
+        ch = json.loads(ch_path.read_text(encoding="utf-8"))
+        shorts_ids = set(ch.get("shorts", []))
+        for vid in ch.get("videos", []) + ch.get("shorts", []):
+            db.setdefault(vid, {"id": vid})
+
+    # 3) 상세정보 없는 영상 → 시청 페이지에서 보충 (롱폼은 장면 썸네일용 스토리보드 포함)
+    todo = [v for v in db.values() if not v.get("detail")]
+    for n, v in enumerate(todo, 1):
+        try:
+            d = from_watch(v["id"])
+            if d["published"]:
+                d["published"] = iso_utc(d["published"])
+            else:
+                d.pop("published")
+            if "type" not in v:
+                d["type"] = "shorts" if (v["id"] in shorts_ids or 0 < d["length"] <= 180) else "video"
+            db[v["id"]] = {**v, **d, "detail": True}
+        except Exception as exc:
+            print(f"[fetch] {v['id']} 상세 실패: {exc}", file=sys.stderr)
+            if not v.get("title"):
+                db.pop(v["id"], None)
+        if n % 25 == 0:
+            print(f"[fetch] 상세 {n}/{len(todo)}")
+        time.sleep(0.4)
+
+    for vid, v in db.items():
+        v.setdefault("type", "shorts" if vid in shorts_ids else "video")
+        v.update(parse_description(v.get("description", "")))
+
+    videos = sorted(db.values(), key=lambda x: x.get("published", ""), reverse=True)
     DATA.parent.mkdir(parents=True, exist_ok=True)
     DATA.write_text(json.dumps(videos, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"[fetch] source={'api' if key else 'rss'} total={len(videos)} new={new}")
+    new = len(videos) - known
+    print(f"[fetch] total={len(videos)} new={new}")
     gh_out = os.environ.get("GITHUB_OUTPUT")
     if gh_out:
         with open(gh_out, "a") as f:

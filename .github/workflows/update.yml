@@ -2,8 +2,10 @@ name: 새 영상 자동 업데이트 & 배포
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # 30분마다 새 영상 확인
-  workflow_dispatch:          # Actions 탭에서 수동 실행
+    - cron: "*/30 * * * *"   # 30분마다: 새 영상 확인 (RSS)
+    - cron: "15 */3 * * *"   # 3시간마다: 무신사 큐레이터샵 큐레이션 다시 읽기
+    - cron: "45 18 * * *"    # 매일 새벽 3:45(KST): 채널 전체 영상 목록 다시 스캔
+  workflow_dispatch:
   push:
     branches: [main]
     paths: ["data/overrides.json", "config.json", "scripts/**", "assets/**"]
@@ -30,11 +32,27 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: 유튜브에서 새 영상 가져오기
+      - name: 유튜브 새 영상 확인
         id: fetch
-        env:
-          YT_API_KEY: ${{ secrets.YT_API_KEY }}   # 선택. 없으면 RSS 사용
         run: python scripts/fetch.py
+
+      - name: 브라우저 도구 준비 (큐레이터샵/채널 스캔용)
+        id: need
+        if: steps.fetch.outputs.new != '0' || github.event_name != 'schedule' || github.event.schedule != '*/30 * * * *'
+        run: |
+          pip install -q playwright==1.60.0
+          python -m playwright install --with-deps chromium
+          echo "browser=true" >> "$GITHUB_OUTPUT"
+
+      - name: 채널 전체 영상 스캔 (매일/수동)
+        if: steps.need.outputs.browser == 'true' && (github.event_name == 'workflow_dispatch' || github.event.schedule == '45 18 * * *')
+        run: python scripts/channel.py && python scripts/fetch.py
+        continue-on-error: true
+
+      - name: 무신사 큐레이터샵 큐레이션 읽기
+        if: steps.need.outputs.browser == 'true'
+        run: python scripts/curator.py
+        continue-on-error: true
 
       - name: 데이터 변경분 커밋
         run: |
@@ -42,7 +60,7 @@ jobs:
             git config user.name "dodang-bot"
             git config user.email "dodang-bot@users.noreply.github.com"
             git add data/
-            git commit -m "data: 영상 정보 업데이트 ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git commit -m "data: 영상/큐레이션 업데이트 ($(date -u +%Y-%m-%dT%H:%MZ))"
             git push
             echo "changed=true" >> "$GITHUB_ENV"
           fi
