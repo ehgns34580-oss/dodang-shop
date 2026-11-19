@@ -1,10 +1,150 @@
 {
  "curations": [
   {
+   "id": "01KP5J0M6M52SFRA7BGAM6ST8D",
+   "title": "플레이스스튜디오맨 X 도댕 착장",
+   "description": "영상 속 착장 모아보기",
+   "order": 100,
+   "goods": [
+    {
+     "goods_no": "7587807",
+     "brand": "플레이스스튜디오맨",
+     "name": "클래식 카라 비조 스트랩 플랩 포켓 오버핏 싱글 하프 코트 자켓 _2COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261022/7587807/7587807_17926493591812_500.jpg",
+     "price": 61200,
+     "normal_price": 85000,
+     "discount": 28,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7587807?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XDXJ3ZC0V"
+    },
+    {
+     "goods_no": "7497917",
+     "brand": "플레이스스튜디오맨",
+     "name": "배색 카라 멀티 포켓 스냅 버튼 포인트 오버핏 블루종 숏 패딩 점퍼 [블랙]",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261013/7497917/7497917_17942751190892_500.jpg",
+     "price": 51800,
+     "normal_price": 71000,
+     "discount": 27,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7497917?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X9HMS4MKP"
+    },
+    {
+     "goods_no": "7497871",
+     "brand": "플레이스스튜디오맨",
+     "name": "배색 카라 멀티 포켓 스냅 버튼 포인트 오버핏 블루종 숏 패딩 점퍼 [카키]",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261013/7497871/7497871_17927150890908_500.jpg",
+     "price": 51800,
+     "normal_price": 71000,
+     "discount": 27,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7497871?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XHH2GS8UG"
+    },
+    {
+     "goods_no": "7132755",
+     "brand": "플레이스스튜디오맨",
+     "name": "베이직 배색 디테일 투웨이 지퍼 오버핏 와플 니트 후드 집업_2COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260821/7132755/7132755_17878151689835_500.jpg",
+     "price": 38600,
+     "normal_price": 56000,
+     "discount": 31,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7132755?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XQTPFG3PJ"
+    },
+    {
+     "goods_no": "7588018",
+     "brand": "플레이스스튜디오맨",
+     "name": "배색 카라 포켓 스트랩 퍼 라이닝 오버핏 스웨이드 무스탕 점퍼 [블랙]",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261022/7588018/7588018_17926439220336_500.jpg",
+     "price": 53200,
+     "normal_price": 72000,
+     "discount": 26,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7588018?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X9E08372P"
+    },
+    {
+     "goods_no": "7587994",
+     "brand": "플레이스스튜디오맨",
+     "name": "배색 카라 포켓 스트랩 퍼 라이닝 오버핏 스웨이드 무스탕 점퍼 [브라운]",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261022/7587994/7587994_17926494919762_500.jpg",
+     "price": 53200,
+     "normal_price": 72000,
+     "discount": 26,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7587994?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XG6JV9ZA7"
+    },
+    {
+     "goods_no": "7652674",
+     "brand": "플레이스스튜디오맨",
+     "name": "하이넥 패디드 미니멀 포켓 밑단 스트링 포인트 루즈핏 롱 빈티지 야상 자켓_3COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261029/7652674/7652674_17932380277922_500.jpg",
+     "price": 49900,
+     "normal_price": 77000,
+     "discount": 35,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7652674?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XX8VBCLP7"
+    },
+    {
+     "goods_no": "7498403",
+     "brand": "플레이스스튜디오맨",
+     "name": "유틸리티 하이넥 포켓 디테일 오버핏 퀼팅 블루종 집업 패디드 자켓 [블랙]",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261013/7498403/7498403_17918535649775_500.jpg",
+     "price": 51800,
+     "normal_price": 71000,
+     "discount": 27,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7498403?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X0A8IT947"
+    },
+    {
+     "goods_no": "7498366",
+     "brand": "플레이스스튜디오맨",
+     "name": "유틸리티 하이넥 포켓 디테일 오버핏 퀼팅 블루종 집업 패디드 자켓 [네이비]",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261013/7498366/7498366_17919421061334_500.jpg",
+     "price": 51800,
+     "normal_price": 71000,
+     "discount": 27,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7498366?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XHE2TU3II"
+    },
+    {
+     "goods_no": "7195828",
+     "brand": "플레이스스튜디오맨",
+     "name": "스트라이프 배색 포켓 디테일 라운드넥 오버핏 코튼 롱슬리브 티셔츠_2COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260828/7195828/7195828_17881536375988_500.jpg",
+     "price": 39900,
+     "normal_price": 57000,
+     "discount": 30,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7195828?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X9EQGO3GJ"
+    },
+    {
+     "goods_no": "7130822",
+     "brand": "플레이스스튜디오맨",
+     "name": "포켓 리벳 디테일 루즈핏 라운드넥 코튼 롱슬리브 코튼 긴팔 티셔츠_3COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260821/7130822/7130822_17872933208540_500.jpg",
+     "price": 34700,
+     "normal_price": 49000,
+     "discount": 29,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7130822?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XMKBTCEWX"
+    },
+    {
+     "goods_no": "7498273",
+     "brand": "플레이스스튜디오맨",
+     "name": "숄더 버튼 포인트 소프트 터치 루즈핏 데일리 긴팔 베이직 니트_2COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261013/7498273/7498273_17943770504841_500.jpg",
+     "price": 30300,
+     "normal_price": 41000,
+     "discount": 26,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7498273?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XOUADB1TU"
+    }
+   ]
+  },
+  {
    "id": "01M62B0F9QHAXA7A8C5M7B6C8Q",
    "title": "👑[블프 BEST] 인기 아우터",
    "description": "요즘 제일 잘 나가는 아우터",
-   "order": 100,
+   "order": 99,
    "goods": [
     {
      "goods_no": "2098325",
@@ -166,7 +306,7 @@
    "id": "01M62CQVYK4677873MZ01YDSHY",
    "title": "🔥[블프 BEST] 5만원 이하 인기템",
    "description": "판매량 검증된 가성비템",
-   "order": 99,
+   "order": 98,
    "goods": [
     {
      "goods_no": "6948481",
@@ -339,7 +479,7 @@
    "id": "01M31K4EXWNJG6876E4YQ6YMDK",
    "title": "무진장 D-2 미리 담기 · 작년 베스트 코트",
    "description": "작년 무진장 판매 1위 코트 모음",
-   "order": 98,
+   "order": 97,
    "goods": [
     {
      "goods_no": "2098325",
@@ -501,7 +641,7 @@
    "id": "01M0VFFDDPGR6RCNVY0R4NWHXB",
    "title": "무진장 티징 특가 · 지금 살 수 있는 것",
    "description": "11/20 19시 티징 특가 오픈",
-   "order": 97,
+   "order": 96,
    "goods": [
     {
      "goods_no": "5622640",
@@ -608,7 +748,7 @@
    "id": "01KP7BGVZRAEK7WBBP18MSWJEV",
    "title": "🔥[블프 인기] 패딩 TOP",
    "description": "구독자가 제일 많이 산 패딩",
-   "order": 96,
+   "order": 95,
    "goods": [
     {
      "goods_no": "5532467",
@@ -770,7 +910,7 @@
    "id": "01KP5H7XBM7N8V4405CMPKZ22F",
    "title": "🔥[블프 인기] 니트 TOP",
    "description": "구독자가 제일 많이 산 니트",
-   "order": 95,
+   "order": 94,
    "goods": [
     {
      "goods_no": "2723767",
@@ -910,7 +1050,7 @@
    "id": "01KV9H3CJ6ECGC288AQ96RY0J5",
    "title": "🔥[블프 인기] 데님·팬츠 TOP",
    "description": "구독자가 제일 많이 산 바지",
-   "order": 94,
+   "order": 93,
    "goods": [
     {
      "goods_no": "1149329",
@@ -1061,7 +1201,7 @@
    "id": "01M31KRKWVESYZ5P5BH6KDKXCD",
    "title": "📍[도댕Pick 무진장 블프템] 발마칸 코트",
    "description": "가장 많이 팔린 발마칸 모음",
-   "order": 93,
+   "order": 92,
    "goods": [
     {
      "goods_no": "2098325",
@@ -1223,7 +1363,7 @@
    "id": "01KP7GSZD9GMMJDE5WVCRCGDHG",
    "title": "📍[도댕Pick 무진장 블프템] 싱글 코트",
    "description": "깔끔한 핏의 싱글 코트",
-   "order": 92,
+   "order": 91,
    "goods": [
     {
      "goods_no": "655610",
@@ -1385,7 +1525,7 @@
    "id": "01KPAA0EF4B2R11KA0QGDH4TNX",
    "title": "📍[도댕Pick 무진장 블프템] 더블 코트",
    "description": "클래식한 더블 코트 모음",
-   "order": 91,
+   "order": 90,
    "goods": [
     {
      "goods_no": "885715",
@@ -1558,7 +1698,7 @@
    "id": "01K9F29YBHT7SK9EWKQAC2GN39",
    "title": "📍[도댕Pick 무진장 블프템] 숏 코트",
    "description": "",
-   "order": 90,
+   "order": 89,
    "goods": [
     {
      "goods_no": "4361477",
@@ -1720,7 +1860,7 @@
    "id": "01KQA2D9D5539JPGX6K0ATXNWB",
    "title": "📍[도댕Pick 무진장 블프템] 기타 코트",
    "description": "맥·피·더플·트렌치·로브",
-   "order": 89,
+   "order": 88,
    "goods": [
     {
      "goods_no": "709188",
@@ -1904,7 +2044,7 @@
    "id": "01KQA1PWR7B052Y3KHS4PGY7JB",
    "title": "📍[도댕Pick 무진장 블프템] 헤비 패딩",
    "description": "",
-   "order": 88,
+   "order": 87,
    "goods": [
     {
      "goods_no": "3585225",
@@ -2110,7 +2250,7 @@
    "id": "01M6BB6SW06W88RZJJMRFDYS2S",
    "title": "📍[도댕Pick 무진장 블프템] 경량 패딩",
    "description": "",
-   "order": 87,
+   "order": 86,
    "goods": [
     {
      "goods_no": "5532467",
@@ -2272,7 +2412,7 @@
    "id": "01M6CNH1T9Y15C413KN80GA4F0",
    "title": "📍[도댕Pick 무진장 블프템] 무스탕",
    "description": "",
-   "order": 86,
+   "order": 85,
    "goods": [
     {
      "goods_no": "4424968",
@@ -2412,7 +2552,7 @@
    "id": "01KQA22NZF40D1V33WWKFSG2S7",
    "title": "📍[도댕Pick 무진장 블프템] 블레이저",
    "description": "",
-   "order": 85,
+   "order": 84,
    "goods": [
     {
      "goods_no": "1283757",
@@ -2629,7 +2769,7 @@
    "id": "01M1G25J0B6FN9J49QXK1JYRZV",
    "title": "📍[도댕Pick 무진장 블프템] 크롭 자켓",
    "description": "",
-   "order": 84,
+   "order": 83,
    "goods": [
     {
      "goods_no": "7104737",
@@ -2736,7 +2876,7 @@
    "id": "01M6CMXKGA1X9RZGWZJVQWP06D",
    "title": "📍[도댕Pick 무진장 블프템] 블루종",
    "description": "",
-   "order": 83,
+   "order": 82,
    "goods": [
     {
      "goods_no": "4462469",
@@ -2876,7 +3016,7 @@
    "id": "01K5BFPQP3H3MG4TYBJD73KF1Z",
    "title": "📍[도댕Pick 무진장 블프템] 레더 자켓",
    "description": "",
-   "order": 82,
+   "order": 81,
    "goods": [
     {
      "goods_no": "5899382",
@@ -3027,7 +3167,7 @@
    "id": "01KEC8PJS5H1H4E5H2AF133S78",
    "title": "📍[도댕Pick 무진장 블프템] 트러커·워크",
    "description": "",
-   "order": 81,
+   "order": 80,
    "goods": [
     {
      "goods_no": "6990870",
@@ -3167,7 +3307,7 @@
    "id": "01M31JZZJFAVB0YN9W4SFKNTAF",
    "title": "📍[도댕Pick 무진장 블프템] 가성비 자켓",
    "description": "",
-   "order": 80,
+   "order": 79,
    "goods": [
     {
      "goods_no": "3390508",
@@ -3263,7 +3403,7 @@
    "id": "01KP7DJN0G3WW56E1GM9GHA5WM",
    "title": "📍[도댕Pick 무진장 블프템] 기본 니트",
    "description": "",
-   "order": 79,
+   "order": 78,
    "goods": [
     {
      "goods_no": "2723767",
@@ -3458,7 +3598,7 @@
    "id": "01KP5JMV6NHYANT0TX2877R2K5",
    "title": "📍[도댕Pick 무진장 블프템] 헨리넥 긴팔",
    "description": "",
-   "order": 78,
+   "order": 77,
    "goods": [
     {
      "goods_no": "5453617",
@@ -3664,7 +3804,7 @@
    "id": "01KP7G7T0KJSVN8Q2XX9XSEYP6",
    "title": "📍[도댕Pick 무진장 블프템] 모크넥 니트",
    "description": "요즘 뜨는 겨울 이너 니트",
-   "order": 77,
+   "order": 76,
    "goods": [
     {
      "goods_no": "7011605",
@@ -3771,7 +3911,7 @@
    "id": "01KAFYDPNSDG8YBMP2VZ59B9QP",
    "title": "📍[도댕Pick 무진장 블프템] 가디건",
    "description": "",
-   "order": 76,
+   "order": 75,
    "goods": [
     {
      "goods_no": "5328219",
@@ -3975,9 +4115,9 @@
   },
   {
    "id": "01KRJPMN07B360WXQXYDDC4KNR",
-   "title": "📍[도댕Pick 무진장 블프템] 기본 긴팔티",
+   "title": "📍[도댕Pick 무진장 블프템] 기본 티셔츠",
    "description": "",
-   "order": 75,
+   "order": 74,
    "goods": [
     {
      "goods_no": "6948481",
@@ -4121,6 +4261,105 @@
      "discount": 10,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/7048741?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XQW62K6KP"
+    },
+    {
+     "goods_no": "2479911",
+     "brand": "쿠어",
+     "name": "[2PACK] 수피마 코튼 티셔츠",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20220411/2479911/2479911_17731079454756_500.jpg",
+     "price": 44900,
+     "normal_price": 83000,
+     "discount": 46,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/2479911?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xoh3WETKq"
+    },
+    {
+     "goods_no": "3136931",
+     "brand": "엘무드",
+     "name": "슬러브 스쿱넥 하프 슬리브 티셔츠 ( 2 COLOR )",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230309/3136931/3136931_17835924015867_500.png",
+     "price": 31200,
+     "normal_price": 39000,
+     "discount": 20,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/3136931?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XnZ3WhIQm"
+    },
+    {
+     "goods_no": "2976549",
+     "brand": "무신사 스탠다드",
+     "name": "[쿨탠다드] 베이식 크루 넥 티셔츠 2팩",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20221208/2976549/2976549_17805365638920_500.jpg",
+     "price": 35790,
+     "normal_price": 39800,
+     "discount": 10,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/2976549?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xxe2ldEG7"
+    },
+    {
+     "goods_no": "3272603",
+     "brand": "미나브",
+     "name": "2PACK 쿨코튼 유넥 반팔 티셔츠",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230502/3272603/3272603_17170387117099_500.jpg",
+     "price": 45000,
+     "normal_price": 72000,
+     "discount": 38,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/3272603?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XWNEGK7X7"
+    },
+    {
+     "goods_no": "3234934",
+     "brand": "브렌슨",
+     "name": "ACHROMATIC_ 컴포트 Concise U넥 반팔티 ( 2Color )",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230414/3234934/3234934_17430548222518_500.jpg",
+     "price": 19900,
+     "normal_price": 39800,
+     "discount": 50,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/3234934?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xh1Byr7hK"
+    },
+    {
+     "goods_no": "2050094",
+     "brand": "무신사 스탠다드",
+     "name": "베이식 크루 넥 티셔츠 2팩",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20210805/2050094/2050094_17138592561124_500.jpg",
+     "price": 30190,
+     "normal_price": 31800,
+     "discount": 5,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/2050094?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XOjFx802J"
+    },
+    {
+     "goods_no": "1437779",
+     "brand": "브론슨",
+     "name": "9oz USA Cotton Tubular Tee Black",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20200508/1437779/1437779_17781237148492_500.jpg",
+     "price": 31500,
+     "normal_price": 35000,
+     "discount": 10,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/1437779?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XGgLn8gB9"
+    },
+    {
+     "goods_no": "1437773",
+     "brand": "브론슨",
+     "name": "9oz USA Cotton Tubular Tee White",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20200508/1437773/1437773_17781238618729_500.jpg",
+     "price": 31500,
+     "normal_price": 35000,
+     "discount": 10,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/1437773?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XLQKc1skq"
+    },
+    {
+     "goods_no": "3206068",
+     "brand": "인사일런스",
+     "name": "[2 PACK] 수피마 코튼 프리미엄 티셔츠_5 Color",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230404/3206068/3206068_17750203068431_500.jpg",
+     "price": 52900,
+     "normal_price": 74000,
+     "discount": 29,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/3206068?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XxLi0yCrB"
     }
    ]
   },
@@ -4128,7 +4367,7 @@
    "id": "01K9Y1794Z6VXYYPZNA0FHQ64E",
    "title": "📍[도댕Pick 무진장 블프템] 청바지",
    "description": "",
-   "order": 74,
+   "order": 73,
    "goods": [
     {
      "goods_no": "5717317",
@@ -4378,7 +4617,7 @@
    "id": "01K9XZC2ZR6TP7PVC0AQNYB1MC",
    "title": "📍[도댕Pick 무진장 블프템] 블랙 데님",
    "description": "",
-   "order": 73,
+   "order": 72,
    "goods": [
     {
      "goods_no": "1666444",
@@ -4573,7 +4812,7 @@
    "id": "01K9Y3349HT7QRWTY47NTKXZP4",
    "title": "📍[도댕Pick 무진장 블프템] 생지 데님",
    "description": "",
-   "order": 72,
+   "order": 71,
    "goods": [
     {
      "goods_no": "4738434",
@@ -4724,7 +4963,7 @@
    "id": "01K9XYPZG6X41YDKX3TBJYS34R",
    "title": "📍[도댕Pick 무진장 블프템] 슬랙스·치노",
    "description": "",
-   "order": 71,
+   "order": 70,
    "goods": [
     {
      "goods_no": "4750069",
@@ -4941,7 +5180,7 @@
    "id": "01K9Y2J217A9YNA0SYYCZ7QY9M",
    "title": "📍[도댕Pick 무진장 블프템] 스웨트 팬츠",
    "description": "",
-   "order": 70,
+   "order": 69,
    "goods": [
     {
      "goods_no": "1844582",
@@ -5081,7 +5320,7 @@
    "id": "01JRSZYRWPMPM96B8X980RX04Z",
    "title": "📍[도댕Pick 무진장 블프템] 구두",
    "description": "",
-   "order": 69,
+   "order": 68,
    "goods": [
     {
      "goods_no": "3276429",
@@ -5265,7 +5504,7 @@
    "id": "01K9XK2MEJA2FVNY4RAPMQP905",
    "title": "📍[도댕Pick 무진장 블프템] 겨울 신발",
    "description": "부츠부터 스니커즈까지",
-   "order": 68,
+   "order": 67,
    "goods": [
     {
      "goods_no": "3115168",
@@ -5383,7 +5622,7 @@
    "id": "01K9Y55CE3FWPKCHKXC17J4GZR",
    "title": "📍[도댕Pick 무진장 블프템] 기타 잡화",
    "description": "양말·벨트·장갑·머플러",
-   "order": 67,
+   "order": 66,
    "goods": [
     {
      "goods_no": "1220731",
@@ -5556,7 +5795,7 @@
    "id": "01K65RHW172SPA82PWTQF32CF3",
    "title": "📍[도댕Pick 무진장 블프템] 가방",
    "description": "",
-   "order": 66,
+   "order": 65,
    "goods": [
     {
      "goods_no": "2688927",
@@ -5751,7 +5990,7 @@
    "id": "01KP5K5YE8FNMSF74VMS9YY3NA",
    "title": "📍[도댕Pick 무진장 블프템] 기본 셔츠",
    "description": "",
-   "order": 65,
+   "order": 64,
    "goods": [
     {
      "goods_no": "854337",
@@ -5858,7 +6097,7 @@
    "id": "01KP7AKTD7VB2JVW94MXJEK1CF",
    "title": "📍[도댕Pick 무진장 블프템] 캐주얼 셔츠",
    "description": "줄무늬·체크·데님 셔츠",
-   "order": 64,
+   "order": 63,
    "goods": [
     {
      "goods_no": "5289769",
@@ -6035,113 +6274,6 @@
      "discount": 20,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/4768597?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XWvoNjVvu"
-    }
-   ]
-  },
-  {
-   "id": "01KP5J0M6M52SFRA7BGAM6ST8D",
-   "title": "📍[도댕Pick 무진장 블프템] 이너 반팔티",
-   "description": "니트 안에 받쳐 입기 좋아요",
-   "order": 63,
-   "goods": [
-    {
-     "goods_no": "2479911",
-     "brand": "쿠어",
-     "name": "[2PACK] 수피마 코튼 티셔츠",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20220411/2479911/2479911_17731079454756_500.jpg",
-     "price": 44900,
-     "normal_price": 83000,
-     "discount": 46,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/2479911?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xoh3WETKq"
-    },
-    {
-     "goods_no": "3136931",
-     "brand": "엘무드",
-     "name": "슬러브 스쿱넥 하프 슬리브 티셔츠 ( 2 COLOR )",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230309/3136931/3136931_17835924015867_500.png",
-     "price": 31200,
-     "normal_price": 39000,
-     "discount": 20,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/3136931?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XnZ3WhIQm"
-    },
-    {
-     "goods_no": "2976549",
-     "brand": "무신사 스탠다드",
-     "name": "[쿨탠다드] 베이식 크루 넥 티셔츠 2팩",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20221208/2976549/2976549_17805365638920_500.jpg",
-     "price": 35790,
-     "normal_price": 39800,
-     "discount": 10,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/2976549?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xxe2ldEG7"
-    },
-    {
-     "goods_no": "3272603",
-     "brand": "미나브",
-     "name": "2PACK 쿨코튼 유넥 반팔 티셔츠",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230502/3272603/3272603_17170387117099_500.jpg",
-     "price": 45000,
-     "normal_price": 72000,
-     "discount": 38,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/3272603?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XWNEGK7X7"
-    },
-    {
-     "goods_no": "3234934",
-     "brand": "브렌슨",
-     "name": "ACHROMATIC_ 컴포트 Concise U넥 반팔티 ( 2Color )",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230414/3234934/3234934_17430548222518_500.jpg",
-     "price": 19900,
-     "normal_price": 39800,
-     "discount": 50,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/3234934?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xh1Byr7hK"
-    },
-    {
-     "goods_no": "2050094",
-     "brand": "무신사 스탠다드",
-     "name": "베이식 크루 넥 티셔츠 2팩",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20210805/2050094/2050094_17138592561124_500.jpg",
-     "price": 30190,
-     "normal_price": 31800,
-     "discount": 5,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/2050094?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XOjFx802J"
-    },
-    {
-     "goods_no": "1437779",
-     "brand": "브론슨",
-     "name": "9oz USA Cotton Tubular Tee Black",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20200508/1437779/1437779_17781237148492_500.jpg",
-     "price": 31500,
-     "normal_price": 35000,
-     "discount": 10,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/1437779?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XGgLn8gB9"
-    },
-    {
-     "goods_no": "1437773",
-     "brand": "브론슨",
-     "name": "9oz USA Cotton Tubular Tee White",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20200508/1437773/1437773_17781238618729_500.jpg",
-     "price": 31500,
-     "normal_price": 35000,
-     "discount": 10,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/1437773?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XLQKc1skq"
-    },
-    {
-     "goods_no": "3206068",
-     "brand": "인사일런스",
-     "name": "[2 PACK] 수피마 코튼 프리미엄 티셔츠_5 Color",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230404/3206068/3206068_17750203068431_500.jpg",
-     "price": 52900,
-     "normal_price": 74000,
-     "discount": 29,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/3206068?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XxLi0yCrB"
     }
    ]
   },
@@ -8062,6 +8194,17 @@
      "link": "https://www.musinsa.com/products/854337?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=X4A3xpPh5"
     },
     {
+     "goods_no": "6068469",
+     "brand": "미세키서울 맨",
+     "name": "Asymmetric button shirt CHARCOAL",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260301/6068469/6068469_17841780394769_500.jpg",
+     "price": 97200,
+     "normal_price": 108000,
+     "discount": 10,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/6068469?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XssE1sSFt"
+    },
+    {
      "goods_no": "3136931",
      "brand": "엘무드",
      "name": "슬러브 스쿱넥 하프 슬리브 티셔츠 ( 2 COLOR )",
@@ -8280,17 +8423,6 @@
      "discount": 0,
      "sold_out": true,
      "link": "https://www.musinsa.com/products/5937031?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XtjpbFcZ1"
-    },
-    {
-     "goods_no": "6068469",
-     "brand": "미세키서울 맨",
-     "name": "Asymmetric button shirt CHARCOAL",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260301/6068469/6068469_17841780394769_500.jpg",
-     "price": 97200,
-     "normal_price": 108000,
-     "discount": 10,
-     "sold_out": true,
-     "link": "https://www.musinsa.com/products/6068469?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XssE1sSFt"
     },
     {
      "goods_no": "4754506",
