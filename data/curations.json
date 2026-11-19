@@ -519,9 +519,9 @@
      "brand": "지오다노",
      "name": "덕다운 오버핏 후드 패딩 372922 [2color]",
      "image": "https://image.msscdn.net/thumbnails/images/goods_img/20221117/2948742/2948742_2_500.jpg",
-     "price": 79200,
+     "price": 99000,
      "normal_price": 198000,
-     "discount": 60,
+     "discount": 50,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/2948742?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XSWA1RQJ3"
     },
@@ -5252,7 +5252,7 @@
      "goods_no": "4201382",
      "brand": "킨치",
      "name": "BRUTAL - 649 (a) VIBRAM",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20240617/4201382/4201382_17799378214785_500.jpg",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20240617/4201382/4201382_17950772186952_500.jpg",
      "price": 339150,
      "normal_price": 399000,
      "discount": 15,
@@ -7615,7 +7615,7 @@
      "goods_no": "4201382",
      "brand": "킨치",
      "name": "BRUTAL - 649 (a) VIBRAM",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20240617/4201382/4201382_17799378214785_500.jpg",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20240617/4201382/4201382_17950772186952_500.jpg",
      "price": 339150,
      "normal_price": 399000,
      "discount": 15,
@@ -7711,7 +7711,7 @@
      "goods_no": "3417694",
      "brand": "킨치",
      "name": "GRAINY - 647 (a) VIBRAM",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230720/3417694/3417694_17150679614305_500.jpg",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230720/3417694/3417694_17950774201394_500.jpg",
      "price": 339150,
      "normal_price": 399000,
      "discount": 15,
@@ -7774,7 +7774,7 @@
      "goods_no": "4201382",
      "brand": "킨치",
      "name": "BRUTAL - 649 (a) VIBRAM",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20240617/4201382/4201382_17799378214785_500.jpg",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20240617/4201382/4201382_17950772186952_500.jpg",
      "price": 339150,
      "normal_price": 399000,
      "discount": 15,
@@ -8062,17 +8062,6 @@
      "link": "https://www.musinsa.com/products/854337?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=X4A3xpPh5"
     },
     {
-     "goods_no": "6068469",
-     "brand": "미세키서울 맨",
-     "name": "Asymmetric button shirt CHARCOAL",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260301/6068469/6068469_17841780394769_500.jpg",
-     "price": 97200,
-     "normal_price": 108000,
-     "discount": 10,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/6068469?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XssE1sSFt"
-    },
-    {
      "goods_no": "3136931",
      "brand": "엘무드",
      "name": "슬러브 스쿱넥 하프 슬리브 티셔츠 ( 2 COLOR )",
@@ -8291,6 +8280,17 @@
      "discount": 0,
      "sold_out": true,
      "link": "https://www.musinsa.com/products/5937031?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XtjpbFcZ1"
+    },
+    {
+     "goods_no": "6068469",
+     "brand": "미세키서울 맨",
+     "name": "Asymmetric button shirt CHARCOAL",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260301/6068469/6068469_17841780394769_500.jpg",
+     "price": 97200,
+     "normal_price": 108000,
+     "discount": 10,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/6068469?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XssE1sSFt"
     },
     {
      "goods_no": "4754506",
@@ -9081,6 +9081,17 @@
      "link": "https://www.musinsa.com/products/3872361?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XRlG6T6XQ"
     },
     {
+     "goods_no": "4258782",
+     "brand": "러프사이드",
+     "name": "Regular Chino Pants Mud",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20240718/4258782/4258782_17555905999691_500.jpg",
+     "price": 158000,
+     "normal_price": 158000,
+     "discount": 0,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/4258782?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XSNQPbuXg"
+    },
+    {
      "goods_no": "6030942",
      "brand": "파타고니아",
      "name": "멘즈 아웃도어 에브리데이 쇼츠 - 6인치 / 57437R5",
@@ -9101,17 +9112,6 @@
      "discount": 10,
      "sold_out": true,
      "link": "https://www.musinsa.com/products/5984698?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XYL9wsAFy"
-    },
-    {
-     "goods_no": "4258782",
-     "brand": "러프사이드",
-     "name": "Regular Chino Pants Mud",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20240718/4258782/4258782_17555905999691_500.jpg",
-     "price": 158000,
-     "normal_price": 158000,
-     "discount": 0,
-     "sold_out": true,
-     "link": "https://www.musinsa.com/products/4258782?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XSNQPbuXg"
     }
    ]
   },
@@ -9748,7 +9748,7 @@
      "goods_no": "3417694",
      "brand": "킨치",
      "name": "GRAINY - 647 (a) VIBRAM",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230720/3417694/3417694_17150679614305_500.jpg",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230720/3417694/3417694_17950774201394_500.jpg",
      "price": 339150,
      "normal_price": 399000,
      "discount": 15,
@@ -10017,7 +10017,7 @@
      "goods_no": "3417694",
      "brand": "킨치",
      "name": "GRAINY - 647 (a) VIBRAM",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230720/3417694/3417694_17150679614305_500.jpg",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230720/3417694/3417694_17950774201394_500.jpg",
      "price": 339150,
      "normal_price": 399000,
      "discount": 15,
@@ -10854,7 +10854,7 @@
      "goods_no": "3417694",
      "brand": "킨치",
      "name": "GRAINY - 647 (a) VIBRAM",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230720/3417694/3417694_17150679614305_500.jpg",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230720/3417694/3417694_17950774201394_500.jpg",
      "price": 339150,
      "normal_price": 399000,
      "discount": 15,
@@ -13093,7 +13093,7 @@
      "goods_no": "3417694",
      "brand": "킨치",
      "name": "GRAINY - 647 (a) VIBRAM",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230720/3417694/3417694_17150679614305_500.jpg",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230720/3417694/3417694_17950774201394_500.jpg",
      "price": 339150,
      "normal_price": 399000,
      "discount": 15,
