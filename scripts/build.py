@@ -139,8 +139,16 @@ def page(title, body, root, desc=None, og_image=None):
   <div class="links">{ext(C["youtube_url"], "YouTube")}{ext(C["instagram_url"], "Instagram")}{ext(SHOP, "무신사 큐레이터샵")}</div>
   <p class="fdisc">{e(C["disclosure"])}</p>
 </footer>
-<script src="{root}assets/app.js"></script>
+<script src="{root}assets/app.js"></script>{analytics()}
 </body></html>'''
+
+
+def analytics():
+    """방문자 집계(GoatCounter). config.json 의 goatcounter 에 사이트 이름이 있을 때만 넣음."""
+    code = (C.get("goatcounter") or "").strip()
+    if not code:
+        return ""
+    return f'\n<script data-goatcounter="https://{e(code)}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>'
 
 
 def section(eyebrow, title, inner, more_href=None, root="", cls=""):
