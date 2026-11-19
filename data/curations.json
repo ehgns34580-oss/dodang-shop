@@ -1844,17 +1844,6 @@
      "link": "https://www.musinsa.com/products/2157780?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X8ZWZ74C3"
     },
     {
-     "goods_no": "7435888",
-     "brand": "세컨모놀로그",
-     "name": "Military Pea Coat [BLACK]_SECT001BLACK",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261001/7435888/7435888_17912527379431_500.jpg",
-     "price": 188100,
-     "normal_price": 198000,
-     "discount": 5,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/7435888?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X3NIYIMNH"
-    },
-    {
      "goods_no": "2594255",
      "brand": "데꼬로소",
      "name": "마엘 로브 롱 코트 [블랙]",
@@ -1897,6 +1886,17 @@
      "discount": 25,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/5753157?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XK9NLVR3Q"
+    },
+    {
+     "goods_no": "7435888",
+     "brand": "세컨모놀로그",
+     "name": "Military Pea Coat [BLACK]_SECT001BLACK",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261001/7435888/7435888_17912527379431_500.jpg",
+     "price": 188100,
+     "normal_price": 198000,
+     "discount": 5,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/7435888?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X3NIYIMNH"
     }
    ]
   },
@@ -5316,9 +5316,9 @@
      "brand": "킨치",
      "name": "TYPE2 BOOTS - 808 (a)",
      "image": "https://image.msscdn.net/thumbnails/images/prd_img/20260907/7261205/detail_7261205_17889422014664_500.jpg",
-     "price": 279650,
+     "price": 296100,
      "normal_price": 329000,
-     "discount": 15,
+     "discount": 10,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/7261205?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XT1793UB3"
     },
@@ -6691,9 +6691,9 @@
      "brand": "킨치",
      "name": "TYPE2 - 808(a)",
      "image": "https://image.msscdn.net/thumbnails/images/prd_img/20260904/7249959/detail_7249959_17889421497791_500.jpg",
-     "price": 245650,
+     "price": 260100,
      "normal_price": 289000,
-     "discount": 15,
+     "discount": 10,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/7249959?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X2DPLFUBC"
     },
@@ -6798,9 +6798,9 @@
      "brand": "킨치",
      "name": "TYPE2 - 808(a)",
      "image": "https://image.msscdn.net/thumbnails/images/prd_img/20260904/7249959/detail_7249959_17889421497791_500.jpg",
-     "price": 245650,
+     "price": 260100,
      "normal_price": 289000,
-     "discount": 15,
+     "discount": 10,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/7249959?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X2DPLFUBC"
     },
@@ -13510,7 +13510,7 @@
      "goods_no": "6976408",
      "brand": "효지",
      "name": "26 FW 골지 라운드 크롭 티셔츠 (3컬러)",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260802/6976408/6976408_17878168128236_500.jpg",
+     "image": "https://image.msscdn.net/thumbnails/images/prd_img/20260802/6976408/detail_6976408_17878168184660_500.jpg",
      "price": 33000,
      "normal_price": 44000,
      "discount": 25,
