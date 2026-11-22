@@ -1,351 +1,10 @@
 {
- "name": "무진장 26 겨울 블프 티징",
+ "name": "무진장 26 겨울 블랙프라이데이",
  "url": "https://www.musinsa.com/campaign/mujinjangsale/teasing",
- "period": "11.22(일) - 12.02(수)",
- "fetched": "2026-11-22T09:44+00:00",
- "coupons": [
-  {
-   "start": "2026-11-22T17:30:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "무진장 카운트다운 선착순 쿠폰",
-   "name": "무진장 카운트다운 쿠폰 30%",
-   "sub": "11.22(일) 19:00 오픈 1시간 전"
-  }
- ],
- "brand_days": [
-  {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "시그니처 브랜드데이 미리 보기",
-   "tabs": [
-    {
-     "name": "11.22(일) - 11.24(화)",
-     "brands": [
-      {
-       "name": "나이키",
-       "desc": "최대 55% 할인 + 최대 20% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794450672674_8a32dca57dd7.jpg"
-      },
-      {
-       "name": "킨치",
-       "desc": "최대 50% 할인 + 최대 20% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794450678838_0c4e3ab1f51d.jpg"
-      },
-      {
-       "name": "드로우핏",
-       "desc": "최대 50% 할인 + 최대 20% 쿠폰",
-       "label": "단독, 쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794450683330_396eaa9dbf6a.jpg"
-      },
-      {
-       "name": "수아레",
-       "desc": "최대 65% 할인 + 최대 10% 쿠폰",
-       "label": "단독, 쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794450688062_8346816483eb.jpg"
-      },
-      {
-       "name": "마뗑킴",
-       "desc": "최대 50% 할인 + 최대 15% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794450693292_55c81011114c.jpg"
-      },
-      {
-       "name": "미세키서울",
-       "desc": "최대 50% 할인 + 최대 20% 쿠폰",
-       "label": "단독, 쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794450696952_a4f0fd56bbe0.jpg"
-      },
-      {
-       "name": "도프제이슨",
-       "desc": "최대 70% 할인 + 최대 15% 쿠폰",
-       "label": "단독, 쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794450701260_677dd4548ef0.jpg"
-      },
-      {
-       "name": "헬리녹스 웨어",
-       "desc": "최대 20% 할인 + 최대 10% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794450706015_a96ea8c9e24f.jpg"
-      },
-      {
-       "name": "노티카",
-       "desc": "최대 60% 할인 + 최대 10% 쿠폰",
-       "label": "단독, 쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794450716387_7bb6b199c2b2.jpg"
-      },
-      {
-       "name": "앤더슨벨",
-       "desc": "최대 50% 할인 + 최대 15% 쿠폰",
-       "label": "단독, 쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794450722258_cecbaef0b702.jpg"
-      }
-     ]
-    },
-    {
-     "name": "11.25(수) - 11.27(금)",
-     "brands": [
-      {
-       "name": "디스이즈네버댓",
-       "desc": "최대 50% 할인 + 최대 10% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451807071_204227c4da60.jpg"
-      },
-      {
-       "name": "아캄",
-       "desc": "최대 40% 할인 + 최대 10% 쿠폰",
-       "label": "단독, 쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451811478_64e073687cc2.jpg"
-      },
-      {
-       "name": "후브스",
-       "desc": "최대 30% 할인 + 최대 20% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451821476_80ea1da27588.jpg"
-      },
-      {
-       "name": "브론슨",
-       "desc": "최대 30% 할인 + 최대 15% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451826096_432a069a7c6d.jpg"
-      },
-      {
-       "name": "필루미네이트",
-       "desc": "최대 56% 할인 +  최대 10% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464925725_79c022b232c6.jpg"
-      },
-      {
-       "name": "다이브인",
-       "desc": "최대 50% 할인 + 최대 15% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464929125_69b289257593.jpg"
-      },
-      {
-       "name": "아수라",
-       "desc": "최대 40% 할인 + 최대 30% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464932505_e3ad76d0d006.jpg"
-      },
-      {
-       "name": "오픈야드(오와이)",
-       "desc": "최대 45% 할인 + 최대 15% 쿠폰",
-       "label": "단독, 쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464936765_cdace3a81fa2.jpg"
-      },
-      {
-       "name": "허그유어스킨",
-       "desc": "최대 40% 할인 + 최대 20% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464940134_4301771a1eee.jpg"
-      },
-      {
-       "name": "마시모두띠",
-       "desc": "최대 40% 할인 + 최대 5% 장바구니 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464944191_415094938c68.jpg"
-      }
-     ]
-    },
-    {
-     "name": "11.28(토) - 11.29(일)",
-     "brands": [
-      {
-       "name": "코치",
-       "desc": "무신사 단독 할인 + 무료 반품",
-       "label": "단독",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451871312_1b30ed96978d.jpg"
-      },
-      {
-       "name": "기호",
-       "desc": "최대 40% 할인 + 최대 15% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451874245_88d2470aba41.jpg"
-      },
-      {
-       "name": "셀렉스",
-       "desc": "최대 63% 할인 + 최대 25% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1795174859690_60cc247d5df3.jpg"
-      },
-      {
-       "name": "잔스포츠",
-       "desc": "최대 60% 할인 + 최대 15% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451882159_d313c49a4787.jpg"
-      },
-      {
-       "name": "에스트라",
-       "desc": "최대 30% 할인 + 최대 25% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451885749_fc793fbdb013.jpg"
-      },
-      {
-       "name": "일오공칠",
-       "desc": "최대 14% 할인 + 최대 15% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451889759_7a6db4d2722c.jpg"
-      },
-      {
-       "name": "헤라",
-       "desc": "최대 30% 할인 + 최대 15% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451894550_4613826d26c1.jpg"
-      },
-      {
-       "name": "토리든",
-       "desc": "최대 61% 할인 + 최대 30% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451897796_1baa01458abf.jpg"
-      },
-      {
-       "name": "엠엘비",
-       "desc": "최대 50% 할인 + 최대 24% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1795174889800_d602381a9c83.jpg"
-      },
-      {
-       "name": "뷰앤디",
-       "desc": "최대 60% 할인 + 최대 30% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1795174897172_b85ca6929082.jpg"
-      }
-     ]
-    },
-    {
-     "name": "11.30(월) - 12.01(화)",
-     "brands": [
-      {
-       "name": "무신사 스탠다드",
-       "desc": "최대 80% 할인 + 최대 30% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451923925_84190c4c4c6b.jpg"
-      },
-      {
-       "name": "무신사 스탠다드 우먼",
-       "desc": "최대 80% 할인 + 최대 20% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451928545_300b62bd8bb5.jpg"
-      },
-      {
-       "name": "마인드브릿지",
-       "desc": "최대 40% 할인 + 최대 10% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451933756_379a2189c0a9.jpg"
-      },
-      {
-       "name": "디키즈",
-       "desc": "최대 30% 할인 + 최대 20% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451938682_c2862bc84e49.jpg"
-      },
-      {
-       "name": "레더리",
-       "desc": "최대 50% 할인 + 최대 25% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451946473_a4031d26df8d.jpg"
-      },
-      {
-       "name": "블랙야크",
-       "desc": "최대 50% 할인 + 최대 10% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451951903_c9ed74853526.jpg"
-      },
-      {
-       "name": "에잇세컨즈",
-       "desc": "최대 70% 할인 + 최대 19% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451954881_f5447cd0c28a.jpg"
-      },
-      {
-       "name": "아크테릭스",
-       "desc": "최대 60% 할인",
-       "label": "",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794968018094_63a5f0612613.jpg"
-      },
-      {
-       "name": "마스마룰즈",
-       "desc": "최대 60% 할인 + 최대 20% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451965717_3154547563cc.jpg"
-      },
-      {
-       "name": "닥터마틴",
-       "desc": "최대 60% 할인 + 최대 15% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794451969609_c399d120ce63.jpg"
-      }
-     ]
-    },
-    {
-     "name": "12.02(수)",
-     "brands": [
-      {
-       "name": "뉴발란스",
-       "desc": "최대 60% 할인 + 최대 5% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464816682_6dd49d038fc0.jpg"
-      },
-      {
-       "name": "디미트리블랙",
-       "desc": "최대 60% 할인 + 최대 10% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464812692_1f243308fa73.jpg"
-      },
-      {
-       "name": "더바넷",
-       "desc": "최대 50% 할인 + 최대 10% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464809217_b388c1cbf513.jpg"
-      },
-      {
-       "name": "카키포인트",
-       "desc": "최대 30% 할인 + 최대 10% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464804999_7ad38d82a1d9.jpg"
-      },
-      {
-       "name": "스파오",
-       "desc": "최대 56% 할인 + 최대 10% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464799530_42bdf4840e25.jpg"
-      },
-      {
-       "name": "푸마",
-       "desc": "최대 70% 할인 + 최대 29% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464794478_a162f4084688.jpg"
-      },
-      {
-       "name": "아디다스",
-       "desc": "최대 60% 할인 + 최대 20% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464789349_fd3c39c85a32.jpg"
-      },
-      {
-       "name": "트릴리온",
-       "desc": "최대 80% 할인 + 최대 30% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464783221_fe73e90dde38.jpg"
-      },
-      {
-       "name": "스노우피크 어패럴",
-       "desc": "최대 65% 할인 + 최대 20% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794903478807_72e68f601dd7.jpg"
-      },
-      {
-       "name": "던스트",
-       "desc": "최대 40% 할인 + 최대 30% 쿠폰",
-       "label": "쿠폰",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794464775418_513157cad820.jpg"
-      }
-     ]
-    }
-   ]
-  }
- ],
+ "period": "11.22(일) - 11.23(월)",
+ "fetched": "2026-11-22T10:27+00:00",
+ "coupons": [],
+ "brand_days": [],
  "lives": [
   {
    "brand": "어그",
@@ -465,6 +124,15 @@
    "link": "https://www.musinsa.com/app/liveshop/campaign/0b877c088c17"
   },
   {
+   "brand": "살로몬",
+   "desc": "인기 아이템 최대 확보 & 무신사 단독 혜택",
+   "date": "11/30",
+   "time": "오후 08:00",
+   "label": "D-8",
+   "image": "https://image.msscdn.net/campaign_service/images/live-commerce/2026/4d42dba13f334a8799b69a59cddcf377.jpg",
+   "link": "https://www.musinsa.com/app/liveshop/campaign/2c041955bb6f"
+  },
+  {
    "brand": "룰루레몬",
    "desc": "무신사 첫 라이브 with 심으뜸 & 첫 구매 10% 쿠폰 + 5% 쿠폰 + 5% 적립금",
    "date": "11/30",
@@ -530,81 +198,32 @@
  ],
  "benefits": [
   {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "유즈드 선착순 한정 수량 특가",
-   "sub": "프리 오픈 기간만 누릴 수 있는 유즈드 특가 아이템",
-   "tag": "유즈드 한정 수량 특가"
+   "start": "2026-11-22T19:00:00+09:00",
+   "end": "2026-12-03T00:00:00+09:00",
+   "title": "선착순 한정 수량 특가",
+   "sub": "품절 주의, 5,990원부터 파격 특가",
+   "tag": "선착순 한정 수량 특가"
   },
   {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "무신사머니 상품권 선착순 할인",
-   "sub": "매일 오전 11시 무신사머니 할인 판매",
-   "tag": "무신사머니"
-  },
-  {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "프리 오픈 아이템 추천",
+   "start": "2026-11-22T19:00:00+09:00",
+   "end": "2026-12-03T00:00:00+09:00",
+   "title": "무신사 스페셜",
    "sub": "",
-   "tag": "프리 오픈 추천"
+   "tag": "스페셜 발매 상품"
   },
   {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "역대급 시그니처특가 미리보기",
+   "start": "2026-11-22T19:00:00+09:00",
+   "end": "2026-11-25T00:00:00+09:00",
+   "title": "오늘은 아우터데이",
    "sub": "",
-   "tag": "시그니처특가"
+   "tag": "아우터데이"
   },
   {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "무신사머니 제휴 혜택",
-   "sub": "현금처럼 사용 가능한 무신사머니 혜택 보기",
-   "tag": "무신사머니 제휴"
-  },
-  {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "체험단 이벤트",
-   "sub": "무료로 인기 아이템 체험하고 후기 공유하기",
-   "tag": "체험단"
-  },
-  {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "수능 끝 무진장 시작 이벤트",
-   "sub": "온라인 쿠폰 지급 & 무진장 버거 트럭 이벤트",
-   "tag": "수능 끝 이벤트"
-  },
-  {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "무진장 포인트 쌓는 미션 이벤트",
-   "sub": "매일 참여 시 응모권까지, 5천명에게 총 1천만원",
-   "tag": "혜택 홈"
-  },
-  {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "무진장 실속 있는 제휴 이벤트",
-   "sub": "인기 F&B 브랜드와 함께 해서 더 풍성해진 혜택",
-   "tag": "실속 제휴"
-  },
-  {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "무신사 오프라인 스토어 이슈",
-   "sub": "오프라인에서 만나는 인기 브랜드 팝업과 역대급 세일",
-   "tag": "오프라인 이슈"
-  },
-  {
-   "start": "2026-11-20T19:00:00+09:00",
-   "end": "2026-11-22T19:00:00+09:00",
-   "title": "무진장 스페셜 이벤트",
-   "sub": "롯데리아에서 즐기는 무신사 무진장, 핫플 제휴 혜택과 역대급 이벤트까지",
-   "tag": "스페셜 이벤트"
+   "start": "2026-11-22T19:00:00+09:00",
+   "end": "2026-11-25T00:00:00+09:00",
+   "title": "오늘은 킥스데이",
+   "sub": "",
+   "tag": "킥스데이"
   }
  ]
 }
