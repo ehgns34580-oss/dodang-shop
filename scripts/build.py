@@ -15,7 +15,19 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "site"
 C = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
 SHOP = C["curator_shop_url"]
-NAV_EVENT = ""  # 무신사 행사(무진장 등) 진행 중이면 메뉴 맨 앞에 '블프 혜택' 추가
+NAV_EVENT = False  # 무신사 행사(무진장 등) 진행 중이면 메뉴 맨 앞에 '블프 혜택' 추가
+NAV = [("sale", "블프 혜택"), ("coordi", "코디"), ("rank", "랭킹"), ("collections", "모음집"), ("shorts", "SHORTS"), ("videos", "VIDEO"), ("products", "ITEMS")]
+
+
+def nav_html(root, active):
+    out = []
+    for key, label in NAV:
+        if key == "sale" and not NAV_EVENT:
+            continue
+        cls = " ".join(c for c in ("hot" if key == "sale" else "", "on" if key == active else "") if c)
+        attr = (f' class="{cls}"' if cls else "") + (' aria-current="page"' if key == active else "")
+        out.append(f'<a{attr} href="{root}{key}.html">{label}</a>')
+    return "".join(out)
 
 
 def load_json(name, default):
@@ -123,7 +135,7 @@ def product_grid(items, note=True, hint_text=None, ranked=False):
     return f'<div class="pgrid">{"".join(cards)}</div>{hint}'
 
 
-def page(title, body, root, desc=None, og_image=None):
+def page(title, body, root, desc=None, og_image=None, active=None):
     desc = desc or C["hero_sub"]
     og = f'<meta property="og:image" content="{e(og_image)}">' if og_image else ""
     return f'''<!doctype html>
@@ -137,7 +149,7 @@ def page(title, body, root, desc=None, og_image=None):
 </head><body>
 <header class="top">
   <a class="logo" href="{root}index.html">{e(C["site_name"])}</a>
-  <nav>{NAV_EVENT.replace("{root}", root)}<a href="{root}coordi.html">코디</a><a href="{root}rank.html">랭킹</a><a href="{root}collections.html">모음집</a><a href="{root}shorts.html">SHORTS</a><a href="{root}videos.html">VIDEO</a><a href="{root}products.html">ITEMS</a></nav>
+  <nav>{nav_html(root, active)}</nav>
   {ext(SHOP, "큐레이터샵", "shopbtn")}
 </header>
 <main>{body}</main>
@@ -310,7 +322,7 @@ def build_extra(videos, cat):
 
     # ---- 블프/무진장 혜택
     if ev and (ev.get("lives") or ev.get("brand_days") or ev.get("coupons")):
-        NAV_EVENT = '<a class="hot" href="{root}sale.html">블프 혜택</a>'
+        NAV_EVENT = True
         parts = []
         cards = [f'<div class="bcard coupon"><span class="tag">쿠폰</span><b>{e(c["name"] or c["title"])}</b><p>{e(c["sub"])}</p></div>' for c in ev.get("coupons", [])]
         cards += [f'<div class="bcard"><span class="tag">{e(b["tag"])}</span><b>{e(b["title"])}</b>' + (f'<p>{e(b["sub"])}</p>' if b["sub"] else "") + "</div>" for b in ev.get("benefits", [])]
@@ -335,7 +347,7 @@ def build_extra(videos, cat):
         head = f'''<div class="ehero"><p>{e(ev.get("period", ""))}</p><h1>{e(ev.get("name") or "무신사 무진장")}</h1>
 <p>쿠폰, 라이브, 브랜드데이를 한 페이지에 정리했어요. 하루 몇 번씩 자동으로 업데이트돼요.</p>
 <div class="hero-cta">{ext(ev.get("url") or "https://www.musinsa.com", "무신사 행사 페이지 ↗", "btn light")}{ext(SHOP, "도댕 큐레이터샵 ↗", "btn ghost-light")}</div></div>'''
-        write("sale.html", page(f"블프 혜택 정리 | {C['site_title']}", head + "".join(parts), "", desc=f"{ev.get('name', '무신사 무진장')} 쿠폰·라이브·브랜드데이 한눈에 정리"))
+        write("sale.html", page(f"블프 혜택 정리 | {C['site_title']}", head + "".join(parts), "", desc=f"{ev.get('name', '무신사 무진장')} 쿠폰·라이브·브랜드데이 한눈에 정리", active="sale"))
 
     # ---- 랭킹
     pop = [goods_item(g) for g in cat.popular if g.get("price")]
@@ -345,15 +357,15 @@ def build_extra(videos, cat):
         body += section("지금 도댕 큐레이터샵에서 가장 많이 보는", "인기 랭킹 TOP " + str(len(pop)), product_grid(pop, note=False, ranked=True))
     if multi:
         body += section("도댕이 여러 큐레이션에 반복해서 담은", "찐 추천 랭킹", product_grid(multi, note=False, ranked=True))
-    write("rank.html", page(f"랭킹 | {C['site_title']}", body + '<div class="center">' + ext(SHOP, "큐레이터샵 전체 보기 ↗", "btn") + "</div>", ""))
+    write("rank.html", page(f"랭킹 | {C['site_title']}", body + '<div class="center">' + ext(SHOP, "큐레이터샵 전체 보기 ↗", "btn") + "</div>", "", active="rank"))
 
     # ---- 모음집 (큐레이션 전체)
-    write("collections.html", page(f"모음집 | {C['site_title']}", section(f"큐레이션 {len(cat.curations)}개", "모음집", collection_grid(cat, cat.curations)), ""))
+    write("collections.html", page(f"모음집 | {C['site_title']}", section(f"큐레이션 {len(cat.curations)}개", "모음집", collection_grid(cat, cat.curations)), "", active="collections"))
 
     # ---- 코디
     co = coordi_list(videos)
     write("coordi.html", page(f"코디 | {C['site_title']}", section(f"영상 속 전신 코디 {len(co)}개 · 누르면 착용 제품까지", "코디",
-          search_box("영상 제목 검색") + '<div class="grid g5">' + "".join(coordi_card(v, f) for v, f in co) + "</div>"), ""))
+          search_box("영상 제목 검색") + '<div class="grid g5">' + "".join(coordi_card(v, f) for v, f in co) + "</div>"), "", active="coordi"))
     for i, (v, f) in enumerate(co):
         real = v["match"] not in ("topic", None)
         prev_c = f'<a href="{co[i - 1][0]["id"]}.html">← 이전 코디</a>' if i > 0 else "<span></span>"
@@ -370,7 +382,7 @@ def build_extra(videos, cat):
   </div>
 </div>
 <div class="pager">{prev_c}{next_c}</div>'''
-        write(f"coordi/{v['id']}.html", page(f"{v['title']} 코디 | {C['site_title']}", body, "../", desc=f"{v['title']} 코디 착용 제품 · 도댕 무신사 큐레이터샵", og_image=coordi_src(v, f, C.get("base_url") or "")))
+        write(f"coordi/{v['id']}.html", page(f"{v['title']} 코디 | {C['site_title']}", body, "../", desc=f"{v['title']} 코디 착용 제품 · 도댕 무신사 큐레이터샵", og_image=coordi_src(v, f, C.get("base_url") or ""), active="coordi"))
     return ev, co, pop
 
 
@@ -419,8 +431,8 @@ def build():
     write("index.html", page(C["site_title"], body, "", og_image=thumb(videos[0]["id"])))
 
     # ---- lists
-    write("shorts.html", page(f"SHORTS | {C['site_title']}", section(f"숏폼 {len(shorts)}개 코디 정보", "SHORTS", search_box("영상 제목 검색") + '<div class="grid g6">' + "".join(card_html({"video": v, "sec": None, "href": f"v/{v['id']}.html"}) for v in shorts) + "</div>"), ""))
-    write("videos.html", page(f"VIDEO | {C['site_title']}", section(f"롱폼 {len(longs)}개 · 제품별로 바로 보기", "VIDEO", search_box("영상 제목·제품명 검색") + "".join(long_row(v) for v in longs)), ""))
+    write("shorts.html", page(f"SHORTS | {C['site_title']}", section(f"숏폼 {len(shorts)}개 코디 정보", "SHORTS", search_box("영상 제목 검색") + '<div class="grid g6">' + "".join(card_html({"video": v, "sec": None, "href": f"v/{v['id']}.html"}) for v in shorts) + "</div>"), "", active="shorts"))
+    write("videos.html", page(f"VIDEO | {C['site_title']}", section(f"롱폼 {len(longs)}개 · 제품별로 바로 보기", "VIDEO", search_box("영상 제목·제품명 검색") + "".join(long_row(v) for v in longs)), "", active="videos"))
     write("looks.html", '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=shorts.html"><a href="shorts.html">SHORTS</a>')
 
     # ---- items (영상에 실제로 나온 제품, 중복 제거)
@@ -444,7 +456,7 @@ def build():
 <div class="chips"><button data-c="" class="on">ALL</button>{chips}</div></div>
 <div class="items-grid">{grid}</div>
 <p class="hint">제품을 누르면 도댕 큐레이터샵 큐레이션으로 이동해요.</p>''')
-    write("products.html", page(f"ITEMS | {C['site_title']}", body, ""))
+    write("products.html", page(f"ITEMS | {C['site_title']}", body, "", active="products"))
 
     # ---- video detail
     for i, v in enumerate(videos):
@@ -468,7 +480,7 @@ def build():
   </div>
 </div>
 {chapters}{pager}'''
-        write(f"v/{v['id']}.html", page(f"{v['title']} | {C['site_title']}", body, "../", desc=f"{v['title']} 착장 정보 · 도댕 무신사 큐레이터샵", og_image=thumb(v["id"])))
+        write(f"v/{v['id']}.html", page(f"{v['title']} | {C['site_title']}", body, "../", desc=f"{v['title']} 착장 정보 · 도댕 무신사 큐레이터샵", og_image=thumb(v["id"]), active="shorts" if v["type"] == "shorts" else "videos"))
 
     # ---- long-form section (제품 설명 시작 시점)
     for v in longs:
@@ -491,7 +503,7 @@ def build():
   </div>
 </div>
 <div class="pager">{prev_s}{next_s}</div>'''
-            write(f"look/{v['id']}-{k + 1}.html", page(f"{title} | {C['site_title']}", body, "../", og_image=img(s["items"][0]["image"]) if s["items"] and s["items"][0].get("image") else thumb(v["id"])))
+            write(f"look/{v['id']}-{k + 1}.html", page(f"{title} | {C['site_title']}", body, "../", og_image=img(s["items"][0]["image"]) if s["items"] and s["items"][0].get("image") else thumb(v["id"]), active="videos"))
 
     write("404.html", page("페이지를 찾을 수 없어요", '<section class="cta"><h2>페이지를 찾을 수 없어요</h2><a class="btn" href="' + (C.get("base_url") or "/") + '">홈으로</a></section>', ""))
     (OUT / ".nojekyll").write_text("")

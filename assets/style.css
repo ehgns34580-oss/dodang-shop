@@ -199,3 +199,12 @@ footer .fdisc{font-size:11.5px;color:var(--sub);max-width:520px}
 .bpick{font-size:12px;color:var(--sub);margin:10px 0 8px}
 .brow .pgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media(min-width:900px){section .brow .pgrid{grid-template-columns:repeat(8,minmax(0,1fr))}}
+/* ---- v4: 상단 메뉴 가독성 + 현재 페이지 표시 ---- */
+.top nav{gap:6px;font-size:15px;font-weight:700;letter-spacing:.02em;align-items:center}
+.top nav a{flex:none;padding:8px 14px;border-radius:999px;color:#333;background:#f1f1ef;transition:background .15s,color .15s}
+.top nav a:hover{opacity:1;background:#e4e4e1;color:#000}
+.top nav a.on{background:#111;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.top nav a.hot{color:#d32f2f;background:#fdecec}
+.top nav a.hot:hover{background:#fadada}
+.top nav a.hot.on{background:#e53935;color:#fff;box-shadow:0 2px 8px rgba(229,57,53,.35)}
+@media(max-width:560px){.top{flex-wrap:wrap;row-gap:10px}.top nav{order:3;flex:1 0 100%;gap:6px;font-size:14px;margin:0 -16px;padding:0 16px}.top nav a{padding:7px 12px}}

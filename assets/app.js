@@ -26,3 +26,9 @@
     yt.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }));
 })();
+
+// 모바일: 현재 메뉴가 보이도록 가로 스크롤 맞추기
+(() => {
+  const on = document.querySelector('.top nav a.on');
+  if (on) on.scrollIntoView({ block: 'nearest', inline: 'center' });
+})();
