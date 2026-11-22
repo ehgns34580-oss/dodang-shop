@@ -23,7 +23,7 @@ UA = {"User-Agent": "Mozilla/5.0 (dodang-shop updater)"}
 def pending(meta):
     return [k for k, v in meta.items()
             if v and v.get("score", 0) >= MIN_SCORE
-            and not (v.get("clean_v") == VERSION and (IMG_DIR / f"{k}.jpg").exists())]
+            and not (v.get("clean_v") == VERSION and (v.get("bad") or (IMG_DIR / f"{k}.jpg").exists()))]
 
 
 def main():
