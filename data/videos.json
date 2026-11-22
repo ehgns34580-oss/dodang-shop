@@ -94,7 +94,10 @@
     "t": 1033,
     "label": "총정리"
    }
-  ]
+  ],
+  "length": 1088,
+  "storyboard": null,
+  "detail": true
  },
  {
   "id": "CmdMKYsH8Is",
@@ -106,7 +109,10 @@
   "curation_url": null,
   "model_stats": null,
   "looks": [],
-  "chapters": []
+  "chapters": [],
+  "length": 25,
+  "storyboard": null,
+  "detail": true
  },
  {
   "id": "-mmjcNKxgJg",
