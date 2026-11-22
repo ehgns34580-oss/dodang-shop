@@ -86,14 +86,16 @@ def main():
         page = browser.new_page(locale="ko-KR", viewport={"width": 1280, "height": 2400})
         url = FALLBACK
         try:
-            page.goto(HOME, wait_until="networkidle", timeout=60000)
+            page.goto(HOME, wait_until="domcontentloaded", timeout=90000)
+            page.wait_for_timeout(4000)
             hrefs = page.eval_on_selector_all("a[href*='/campaign/mujinjang']", "els => els.map(e => e.href)")
             if hrefs:
                 url = hrefs[0].split("?")[0]
         except Exception as exc:
             print(f"[events] 메인 열기 실패: {exc}", file=sys.stderr)
         page.on("response", on_response)
-        page.goto(url, wait_until="networkidle", timeout=60000)
+        page.goto(url, wait_until="domcontentloaded", timeout=90000)
+        page.wait_for_timeout(5000)
         for _ in range(25):
             page.evaluate("window.scrollBy(0, 1800)")
             page.wait_for_timeout(500)
