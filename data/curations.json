@@ -2207,17 +2207,6 @@
      "link": "https://www.musinsa.com/products/7460200?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XUSS2SZZU"
     },
     {
-     "goods_no": "7460217",
-     "brand": "티엔지티",
-     "name": "European Goose Down Mid-Length Parka (Black) TNJU6F207BK",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261006/7460217/7460217_17912705228594_500.jpg",
-     "price": 197400,
-     "normal_price": 329000,
-     "discount": 40,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/7460217?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X3YFYC7XI"
-    },
-    {
      "goods_no": "7458801",
      "brand": "데이",
      "name": "에어 인슐레이션 패딩 자켓_ 5 COLOR",
@@ -2227,6 +2216,17 @@
      "discount": 50,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/7458801?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X5RAXK8J8"
+    },
+    {
+     "goods_no": "7460217",
+     "brand": "티엔지티",
+     "name": "European Goose Down Mid-Length Parka (Black) TNJU6F207BK",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261006/7460217/7460217_17912705228594_500.jpg",
+     "price": 197400,
+     "normal_price": 329000,
+     "discount": 40,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/7460217?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X3YFYC7XI"
     }
    ]
   },
@@ -11664,17 +11664,6 @@
      "link": "https://www.musinsa.com/products/4966336?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XD2ZMhx4p"
     },
     {
-     "goods_no": "5332793",
-     "brand": "노이즈",
-     "name": "골지 헨리넥 슬리브 니트 - 차콜",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20250818/5332793/5332793_17810739147603_500.jpg",
-     "price": 14000,
-     "normal_price": 94000,
-     "discount": 85,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/5332793?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XO9Z9aTbV"
-    },
-    {
      "goods_no": "3136931",
      "brand": "엘무드",
      "name": "슬러브 스쿱넥 하프 슬리브 티셔츠 ( 2 COLOR )",
@@ -11706,6 +11695,17 @@
      "discount": 34,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/5206545?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=X7QUZRzHG"
+    },
+    {
+     "goods_no": "5332793",
+     "brand": "노이즈",
+     "name": "골지 헨리넥 슬리브 니트 - 차콜",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20250818/5332793/5332793_17810739147603_500.jpg",
+     "price": 14000,
+     "normal_price": 94000,
+     "discount": 85,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/5332793?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XO9Z9aTbV"
     },
     {
      "goods_no": "4297504",
@@ -11771,17 +11771,6 @@
      "link": "https://www.musinsa.com/products/841230?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XZHeislew"
     },
     {
-     "goods_no": "5332793",
-     "brand": "노이즈",
-     "name": "골지 헨리넥 슬리브 니트 - 차콜",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20250818/5332793/5332793_17810739147603_500.jpg",
-     "price": 14000,
-     "normal_price": 94000,
-     "discount": 85,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/5332793?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XO9Z9aTbV"
-    },
-    {
      "goods_no": "3302806",
      "brand": "노운",
      "name": "wide chino pants (charcoal)",
@@ -11813,6 +11802,17 @@
      "discount": 50,
      "sold_out": true,
      "link": "https://www.musinsa.com/products/5332823?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XEeRJV7uz"
+    },
+    {
+     "goods_no": "5332793",
+     "brand": "노이즈",
+     "name": "골지 헨리넥 슬리브 니트 - 차콜",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20250818/5332793/5332793_17810739147603_500.jpg",
+     "price": 14000,
+     "normal_price": 94000,
+     "discount": 85,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/5332793?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XO9Z9aTbV"
     },
     {
      "goods_no": "4141102",
@@ -12652,17 +12652,6 @@
      "link": "https://www.musinsa.com/products/4966347?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XUrZaWEVR"
     },
     {
-     "goods_no": "5332793",
-     "brand": "노이즈",
-     "name": "골지 헨리넥 슬리브 니트 - 차콜",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20250818/5332793/5332793_17810739147603_500.jpg",
-     "price": 14000,
-     "normal_price": 94000,
-     "discount": 85,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/5332793?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XO9Z9aTbV"
-    },
-    {
      "goods_no": "3276429",
      "brand": "킨치",
      "name": "SHOWER - 808 (a) / BLACK",
@@ -12683,6 +12672,17 @@
      "discount": 50,
      "sold_out": true,
      "link": "https://www.musinsa.com/products/5332823?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XEeRJV7uz"
+    },
+    {
+     "goods_no": "5332793",
+     "brand": "노이즈",
+     "name": "골지 헨리넥 슬리브 니트 - 차콜",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20250818/5332793/5332793_17810739147603_500.jpg",
+     "price": 14000,
+     "normal_price": 94000,
+     "discount": 85,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/5332793?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XO9Z9aTbV"
     },
     {
      "goods_no": "5512094",
