@@ -15,6 +15,12 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "site"
 C = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
 SHOP = C["curator_shop_url"]
+NAV_EVENT = ""  # 무신사 행사(무진장 등) 진행 중이면 메뉴 맨 앞에 '블프 혜택' 추가
+
+
+def load_json(name, default):
+    p = ROOT / "data" / name
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else default
 
 
 # ---------------------------------------------------------------- data
@@ -92,16 +98,17 @@ def primary_link(v):
     return v.get("curation_link") or SHOP
 
 
-def product_grid(items, note=True, hint_text=None):
+def product_grid(items, note=True, hint_text=None, ranked=False):
     if not items:
         return ""
     cards = []
-    for it in items:
+    for n, it in enumerate(items, 1):
         price = ""
         if it.get("price"):
             disc = f'<b class="disc">{it["discount"]}%</b>' if it.get("discount") else ""
             price = f'<span class="price">{disc}{won(it["price"])}</span>'
         pic = (f'<div class="pimg"><img loading="lazy" src="{e(img(it["image"]))}" alt="{e(it["name"])}">'
+               + (f'<span class="rnum">{n}</span>' if ranked else "")
                + ('<span class="soldout">품절</span>' if it.get("sold_out") else "") + "</div>") if it.get("image") else \
             f'<div class="pimg noimg"><span>{e(it.get("category") or "ITEM")}</span></div>'
         brand = f'<span class="brand">{e(it["brand"])}</span>' if it.get("brand") else f'<span class="brand">{e(it.get("category") or "")}</span>'
@@ -130,7 +137,7 @@ def page(title, body, root, desc=None, og_image=None):
 </head><body>
 <header class="top">
   <a class="logo" href="{root}index.html">{e(C["site_name"])}</a>
-  <nav><a href="{root}shorts.html">SHORTS</a><a href="{root}videos.html">VIDEO</a><a href="{root}products.html">ITEMS</a></nav>
+  <nav>{NAV_EVENT.replace("{root}", root)}<a href="{root}coordi.html">코디</a><a href="{root}rank.html">랭킹</a><a href="{root}collections.html">모음집</a><a href="{root}shorts.html">SHORTS</a><a href="{root}videos.html">VIDEO</a><a href="{root}products.html">ITEMS</a></nav>
   {ext(SHOP, "큐레이터샵", "shopbtn")}
 </header>
 <main>{body}</main>
@@ -244,6 +251,133 @@ def items_block(v, cat):
     return f'<div class="items-block"><h3>{e(head)}</h3>{cta}{grid}</div>'
 
 
+# ---------------------------------------------------------------- 코디 / 랭킹 / 모음집 / 행사
+def goods_item(g, link=None):
+    return {"name": g["name"], "brand": g["brand"], "image": g["image"], "price": g["price"],
+            "discount": g["discount"], "sold_out": g.get("sold_out"), "link": link or g.get("link") or SHOP}
+
+
+def coordi_list(videos):
+    """전신샷이 자동으로 찾아진 영상 = 코디. 실제 착용 제품이 있는 영상을 앞으로."""
+    found = load_json("coordi.json", {})
+    out = [(v, found[v["id"]]) for v in videos if found.get(v["id"]) and v["items"]]
+    out.sort(key=lambda x: x[0]["published"], reverse=True)
+    out.sort(key=lambda x: x[0]["match"] in ("topic", None))
+    return out
+
+
+def coordi_card(v, f, root=""):
+    real = v["match"] not in ("topic", None)
+    sub = f"착용 제품 {len(v['items'])}개" if real else "비슷한 추천템"
+    pos = "center 30%" if v["type"] == "shorts" else "center"
+    return f'''<a class="card searchable" data-q="{e(v["title"].lower())}" href="{root}coordi/{v["id"]}.html">
+  <div class="img c"><img loading="lazy" src="{e(f["image"])}" alt="{e(v["title"])} 코디" style="object-position:{pos}"></div>
+  <div class="meta"><b>{e(v["title"])}</b><span>{sub}</span></div></a>'''
+
+
+def most_curated(cat, limit=20):
+    """큐레이션에 여러 번 담긴 상품 = 도댕이 반복해서 추천한 상품"""
+    cnt, first = {}, {}
+    for c in cat.curations:
+        for g in c["goods"]:
+            if g.get("sold_out"):
+                continue
+            cnt[g["goods_no"]] = cnt.get(g["goods_no"], 0) + 1
+            first.setdefault(g["goods_no"], g)
+    top = sorted(cnt, key=lambda k: -cnt[k])[:limit]
+    return [goods_item(first[k]) for k in top if cnt[k] > 1]
+
+
+def live_card(l):
+    pic = f'<div class="limg"><img loading="lazy" src="{e(img(l["image"], 480))}" alt=""><span class="badge">{e(l["label"])}</span></div>' if l.get("image") else ""
+    return ext(l["link"] or SHOP, f'''{pic}<div class="ltime"><b>{e(l["date"])}</b> {e(l["time"])}</div>
+  <div class="lbrand">{e(l["brand"])}</div><p class="ldesc">{e(l["desc"])}</p>''', "live")
+
+
+def build_extra(videos, cat):
+    global NAV_EVENT
+    ev = load_json("events.json", {})
+    curated_brands = {}
+    for c in cat.curations:
+        for g in c["goods"]:
+            if not g.get("sold_out"):
+                curated_brands.setdefault(g["brand"], {})[g["goods_no"]] = g
+
+    # ---- 블프/무진장 혜택
+    if ev and (ev.get("lives") or ev.get("brand_days") or ev.get("coupons")):
+        NAV_EVENT = '<a class="hot" href="{root}sale.html">블프 혜택</a>'
+        parts = []
+        cards = [f'<div class="bcard coupon"><span class="tag">쿠폰</span><b>{e(c["name"] or c["title"])}</b><p>{e(c["sub"])}</p></div>' for c in ev.get("coupons", [])]
+        cards += [f'<div class="bcard"><span class="tag">{e(b["tag"])}</span><b>{e(b["title"])}</b>' + (f'<p>{e(b["sub"])}</p>' if b["sub"] else "") + "</div>" for b in ev.get("benefits", [])]
+        if cards:
+            parts.append(section("놓치면 아쉬운", "쿠폰 · 이벤트", f'<div class="bgrid">{"".join(cards)}</div>'))
+        if ev.get("lives"):
+            parts.append(section("방송 시간에 맞춰 들어가면 추가 할인", "라이브 특가 일정", f'<div class="lgrid">{"".join(live_card(l) for l in ev["lives"])}</div>'))
+        for bd in ev.get("brand_days", []):
+            blocks = []
+            for tab in bd["tabs"]:
+                rows = []
+                for b in tab["brands"]:
+                    mine = list(curated_brands.get(b["name"], {}).values())[:4]
+                    labels = "".join(f'<span class="lab">{e(x.strip())}</span>' for x in b["label"].split(",") if x.strip())
+                    rows.append(f'''<div class="brow"><div class="bhead"><b>{e(b["name"])}</b>{labels}<span>{e(b["desc"])}</span></div>
+{('<p class="bpick">도댕 큐레이터샵에 담긴 ' + e(b["name"]) + ' 상품</p>' + product_grid([goods_item(g) for g in mine], note=False)) if mine else ""}</div>''')
+                blocks.append(f'<div class="btab"><h3>{e(tab["name"])}</h3>{"".join(rows)}</div>')
+            parts.append(section("기간별 참여 브랜드 · 도댕 추천 상품까지", e(bd["title"]), "".join(blocks)))
+        sale_curs = [c for c in cat.curations if any(k in c["title"] for k in ("블프", "무진장", "특가", "세일"))]
+        if sale_curs:
+            parts.append(section("도댕이 블프용으로 따로 모은", "블프 큐레이션", collection_grid(cat, sale_curs)))
+        head = f'''<div class="ehero"><p>{e(ev.get("period", ""))}</p><h1>{e(ev.get("name") or "무신사 무진장")}</h1>
+<p>쿠폰, 라이브, 브랜드데이를 한 페이지에 정리했어요. 하루 몇 번씩 자동으로 업데이트돼요.</p>
+<div class="hero-cta">{ext(ev.get("url") or "https://www.musinsa.com", "무신사 행사 페이지 ↗", "btn light")}{ext(SHOP, "도댕 큐레이터샵 ↗", "btn ghost-light")}</div></div>'''
+        write("sale.html", page(f"블프 혜택 정리 | {C['site_title']}", head + "".join(parts), "", desc=f"{ev.get('name', '무신사 무진장')} 쿠폰·라이브·브랜드데이 한눈에 정리"))
+
+    # ---- 랭킹
+    pop = [goods_item(g) for g in cat.popular if g.get("price")]
+    multi = most_curated(cat)
+    body = ""
+    if pop:
+        body += section("지금 도댕 큐레이터샵에서 가장 많이 보는", "인기 랭킹 TOP " + str(len(pop)), product_grid(pop, note=False, ranked=True))
+    if multi:
+        body += section("도댕이 여러 큐레이션에 반복해서 담은", "찐 추천 랭킹", product_grid(multi, note=False, ranked=True))
+    write("rank.html", page(f"랭킹 | {C['site_title']}", body + '<div class="center">' + ext(SHOP, "큐레이터샵 전체 보기 ↗", "btn") + "</div>", ""))
+
+    # ---- 모음집 (큐레이션 전체)
+    write("collections.html", page(f"모음집 | {C['site_title']}", section(f"큐레이션 {len(cat.curations)}개", "모음집", collection_grid(cat, cat.curations)), ""))
+
+    # ---- 코디
+    co = coordi_list(videos)
+    write("coordi.html", page(f"코디 | {C['site_title']}", section(f"영상 속 전신 코디 {len(co)}개 · 누르면 착용 제품까지", "코디",
+          search_box("영상 제목 검색") + '<div class="grid g5">' + "".join(coordi_card(v, f) for v, f in co) + "</div>"), ""))
+    for i, (v, f) in enumerate(co):
+        real = v["match"] not in ("topic", None)
+        prev_c = f'<a href="{co[i - 1][0]["id"]}.html">← 이전 코디</a>' if i > 0 else "<span></span>"
+        next_c = f'<a href="{co[i + 1][0]["id"]}.html">다음 코디 →</a>' if i + 1 < len(co) else ""
+        body = f'''
+<div class="detail">
+  <div class="cphoto {"v" if v["type"] == "shorts" else "h"}"><img src="{e(f["image"])}" alt="{e(v["title"])} 코디"></div>
+  <div class="info">
+    <span class="tag">LOOK</span>
+    <h1>{e(v["title"])}</h1>
+    <p class="sub">모델 {e(v["model_stats"])} · {fmt_date(v["published"])}</p>
+    {items_block(v, cat)}
+    <div class="actions"><a class="btn ghost" href="../v/{v["id"]}.html">영상으로 보기</a></div>
+  </div>
+</div>
+<div class="pager">{prev_c}{next_c}</div>'''
+        write(f"coordi/{v['id']}.html", page(f"{v['title']} 코디 | {C['site_title']}", body, "../", desc=f"{v['title']} 코디 착용 제품 · 도댕 무신사 큐레이터샵", og_image=f["image"]))
+    return ev, co, pop
+
+
+def collection_grid(cat, curs):
+    out = []
+    for c in curs:
+        pics = "".join(f'<img loading="lazy" src="{e(img(g["image"], 240))}" alt="">' for g in c["goods"][:4] if g.get("image"))
+        out.append(ext(cat.link(c), f'<div class="cpics">{pics}</div><div class="meta"><b>{e(c["title"])}</b><span>{len(c["goods"])} ITEMS'
+                       + (f' · {e(c["description"])}' if c.get("description") else "") + "</span></div>", "card coll"))
+    return f'<div class="grid g4">{"".join(out)}</div>'
+
+
 def build():
     videos, cat = load()
     shorts = [v for v in videos if v["type"] == "shorts"]
@@ -254,17 +388,24 @@ def build():
         shutil.rmtree(OUT)
     shutil.copytree(ROOT / "assets", OUT / "assets")
 
-    pop_items = [{"name": g["name"], "brand": g["brand"], "image": g["image"], "price": g["price"], "discount": g["discount"], "link": SHOP} for g in cat.popular]
+    ev, co, pop_items = build_extra(videos, cat)
 
     # ---- index
     hero_title = "<br>".join(e(x) for x in C["hero_title"].split("\n"))
+    sale_bar = ""
+    if NAV_EVENT:
+        nxt = ev.get("lives", [])[:1]
+        sale_bar = (f'<a class="salebar" href="sale.html"><b>{e(ev.get("name") or "무진장")}</b><span>{e(ev.get("period", ""))}'
+                    + (f' · 다음 라이브 {e(nxt[0]["date"])} {e(nxt[0]["time"])} {e(nxt[0]["brand"])}' if nxt else "") + "</span><em>혜택 정리 보기 →</em></a>")
     body = f'''
+{sale_bar}
 <div class="hero" style="--bg:url('{thumb(videos[0]["id"])}')">
   <h1>{hero_title}</h1><p>{e(C["hero_sub"])}</p>
-  <div class="hero-cta"><a class="btn light" href="shorts.html">코디 보러가기</a>{ext(SHOP, "도댕 큐레이터샵 ↗", "btn ghost-light")}</div>
+  <div class="hero-cta"><a class="btn light" href="{"coordi.html" if co else "shorts.html"}">코디 보러가기</a>{ext(SHOP, "도댕 큐레이터샵 ↗", "btn ghost-light")}</div>
   <p class="count">영상 {len(videos)}개 · 착장 정보 {sum(1 for v in videos if v["items"])}개</p>
 </div>
-{section("지금 도댕 큐레이터샵에서 가장 많이 보는", "BEST ITEMS", product_grid(pop_items, note=False) + '<div class="center">' + ext(SHOP, "큐레이터샵 전체 보기 ↗", "btn") + "</div>") if pop_items else ""}
+{section("지금 도댕 큐레이터샵에서 가장 많이 보는", "랭킹", product_grid(pop_items[:10], note=False, ranked=True), "rank.html") if pop_items else ""}
+{section("영상 속 전신 코디 · 누르면 착용 제품까지", "코디", '<div class="grid g5">' + "".join(coordi_card(v, f) for v, f in co[:10]) + "</div>", "coordi.html") if co else ""}
 {section("숏폼 영상 코디 정보 보기", "SHORTS", '<div class="grid g6">' + "".join(card_html({"video": v, "sec": None, "href": f"v/{v['id']}.html"}) for v in shorts[:12]) + "</div>", "shorts.html")}
 {section("롱폼 영상 · 제품별로 바로 보기", "VIDEO", "".join(long_row(v) for v in longs[:3]), "videos.html")}
 '''

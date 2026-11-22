@@ -13,6 +13,8 @@
 - `scripts/fetch.py` 새 영상(RSS, 30분마다) + 상세(설명란·날짜·장면 미리보기)
 - `scripts/channel.py` 채널 전체 영상 목록 스캔 (매일)
 - `scripts/curator.py` 큐레이터샵 큐레이션 + 상품 사진/가격 (3시간마다)
+- `scripts/events.py` 무신사 무진장(블프) 행사 페이지의 쿠폰·라이브·브랜드데이 (3시간마다) → 블프 혜택 페이지
+- `scripts/coordi.py` 영상마다 유튜브 고화질 중간 장면 3장 중 전신샷을 자세 인식으로 골라 코디 페이지 생성
 - `scripts/resolve.py` 영상↔큐레이션 매칭, 롱폼 제품별 구간
 - `scripts/build.py` 사이트 생성
 서버·DB·비용 없이 GitHub Actions + GitHub Pages로 돌아갑니다.
