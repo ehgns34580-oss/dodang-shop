@@ -266,12 +266,17 @@ def coordi_list(videos):
     return out
 
 
+def coordi_src(v, f, root=""):
+    """자막을 지운 코디 사진이 있으면 그걸, 없으면 유튜브 원본 장면"""
+    return f"{root}coordi_img/{v['id']}.jpg" if (ROOT / "data" / "coordi_img" / f"{v['id']}.jpg").exists() else f["image"]
+
+
 def coordi_card(v, f, root=""):
     real = v["match"] not in ("topic", None)
     sub = f"착용 제품 {len(v['items'])}개" if real else "비슷한 추천템"
     pos = "center 30%" if v["type"] == "shorts" else "center"
     return f'''<a class="card searchable" data-q="{e(v["title"].lower())}" href="{root}coordi/{v["id"]}.html">
-  <div class="img c"><img loading="lazy" src="{e(f["image"])}" alt="{e(v["title"])} 코디" style="object-position:{pos}"></div>
+  <div class="img c"><img loading="lazy" src="{e(coordi_src(v, f, root))}" alt="{e(v["title"])} 코디" style="object-position:{pos}"></div>
   <div class="meta"><b>{e(v["title"])}</b><span>{sub}</span></div></a>'''
 
 
@@ -355,7 +360,7 @@ def build_extra(videos, cat):
         next_c = f'<a href="{co[i + 1][0]["id"]}.html">다음 코디 →</a>' if i + 1 < len(co) else ""
         body = f'''
 <div class="detail">
-  <div class="cphoto {"v" if v["type"] == "shorts" else "h"}"><img src="{e(f["image"])}" alt="{e(v["title"])} 코디"></div>
+  <div class="cphoto {"v" if v["type"] == "shorts" else "h"}"><img src="{e(coordi_src(v, f, "../"))}" alt="{e(v["title"])} 코디"></div>
   <div class="info">
     <span class="tag">LOOK</span>
     <h1>{e(v["title"])}</h1>
@@ -365,7 +370,7 @@ def build_extra(videos, cat):
   </div>
 </div>
 <div class="pager">{prev_c}{next_c}</div>'''
-        write(f"coordi/{v['id']}.html", page(f"{v['title']} 코디 | {C['site_title']}", body, "../", desc=f"{v['title']} 코디 착용 제품 · 도댕 무신사 큐레이터샵", og_image=f["image"]))
+        write(f"coordi/{v['id']}.html", page(f"{v['title']} 코디 | {C['site_title']}", body, "../", desc=f"{v['title']} 코디 착용 제품 · 도댕 무신사 큐레이터샵", og_image=coordi_src(v, f, C.get("base_url") or "")))
     return ev, co, pop
 
 
@@ -387,6 +392,8 @@ def build():
     if OUT.exists():
         shutil.rmtree(OUT)
     shutil.copytree(ROOT / "assets", OUT / "assets")
+    if (ROOT / "data" / "coordi_img").exists():
+        shutil.copytree(ROOT / "data" / "coordi_img", OUT / "coordi_img")
 
     ev, co, pop_items = build_extra(videos, cat)
 

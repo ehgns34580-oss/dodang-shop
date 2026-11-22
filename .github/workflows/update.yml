@@ -71,6 +71,17 @@ jobs:
           python scripts/coordi.py
         continue-on-error: true
 
+      - name: 코디샷 자막 지우기 (AI 지우개)
+        if: steps.need.outputs.browser == 'true'
+        run: |
+          if python scripts/coordi_clean.py --pending; then
+            pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu
+            pip install -q easyocr
+            pip install -q --no-deps simple-lama-inpainting
+            python scripts/coordi_clean.py
+          fi
+        continue-on-error: true
+
       - name: 데이터 변경분 커밋
         run: |
           if [ -n "$(git status --porcelain data/)" ]; then
