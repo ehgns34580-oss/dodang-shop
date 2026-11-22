@@ -63,7 +63,8 @@ def main():
         browser = p.chromium.launch(channel="chrome" if "--chrome" in sys.argv else None, headless=True)
         page = browser.new_page(locale="ko-KR", viewport={"width": 1280, "height": 2400})
         page.on("response", on_response)
-        page.goto(SHOP, wait_until="networkidle", timeout=60000)
+        page.goto(SHOP, wait_until="domcontentloaded", timeout=90000)
+        page.wait_for_timeout(5000)
         last, stale = 0, 0
         for _ in range(120):
             page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
