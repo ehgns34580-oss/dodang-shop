@@ -66,7 +66,7 @@ jobs:
       - name: 영상 속 전신 코디샷 자동으로 찾기
         if: steps.need.outputs.browser == 'true'
         run: |
-          sudo apt-get install -y -qq libgl1 libglib2.0-0 > /dev/null || true
+          sudo apt-get update -qq && sudo apt-get install -y -qq libgl1 libegl1 libgles2 libglib2.0-0 > /dev/null || true
           pip install -q mediapipe
           python scripts/coordi.py
         continue-on-error: true
