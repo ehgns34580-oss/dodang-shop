@@ -14,8 +14,9 @@ ROOT = Path(__file__).resolve().parent.parent
 META = ROOT / "data" / "coordi.json"
 IMG_DIR = ROOT / "data" / "coordi_img"
 MIN_SCORE = 0.4
+MAX_MASK = 0.08  # 글자가 사진의 8% 넘게 덮으면 옷까지 지워질 위험 → 코디에서 제외
 WIDTH = 720
-VERSION = 1  # 지우는 방식이 바뀌면 올려서 전부 다시 처리
+VERSION = 2  # 지우는 방식이 바뀌면 올려서 전부 다시 처리
 UA = {"User-Agent": "Mozilla/5.0 (dodang-shop updater)"}
 
 
@@ -66,8 +67,16 @@ def main():
             pad = max(6, int(h * 0.35))  # 글자 외곽선·그림자까지
             d.rectangle([min(xs) - pad, min(ys) - pad, max(xs) + pad, max(ys) + pad], fill=255)
             n += 1
+        mask = mask.filter(ImageFilter.MaxFilter(9))
+        ratio = sum(1 for px in mask.getdata() if px) / (mask.width * mask.height)
+        m["mask_ratio"] = round(ratio, 3)
+        if ratio > MAX_MASK:
+            m["clean_v"], m["texts"], m["bad"] = VERSION, n, True
+            (IMG_DIR / f"{vid}.jpg").unlink(missing_ok=True)
+            META.write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
+            continue
+        m.pop("bad", None)
         if n:
-            mask = mask.filter(ImageFilter.MaxFilter(9))
             out = lama(im, mask)
             out = out.crop((0, 0, im.width, im.height)) if out.size != im.size else out
             cleaned += 1

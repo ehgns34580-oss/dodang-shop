@@ -260,7 +260,7 @@ def goods_item(g, link=None):
 def coordi_list(videos):
     """전신샷이 자동으로 찾아진 영상 = 코디. 실제 착용 제품이 있는 영상을 앞으로."""
     found = load_json("coordi.json", {})
-    out = [(v, found[v["id"]]) for v in videos if found.get(v["id"], {}).get("score", 0) >= 0.4 and v["items"]]
+    out = [(v, found[v["id"]]) for v in videos if found.get(v["id"], {}).get("score", 0) >= 0.4 and not found[v["id"]].get("bad") and v["items"]]
     out.sort(key=lambda x: x[0]["published"], reverse=True)
     out.sort(key=lambda x: x[0]["match"] in ("topic", None))
     return out
