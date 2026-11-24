@@ -2,7 +2,7 @@
  "name": "무진장 26 겨울 블랙프라이데이",
  "url": "https://www.musinsa.com/campaign/mujinjangsale/teasing",
  "period": "",
- "fetched": "2026-11-24T04:16+00:00",
+ "fetched": "2026-11-24T07:35+00:00",
  "coupons": [],
  "brand_days": [
   {
@@ -26,16 +26,16 @@
        "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1795343755840_6556f16d6341.jpg"
       },
       {
-       "name": "지금 챙겨야 할 인기 슈즈",
-       "desc": "에디터 픽 겨울 신발",
-       "label": "",
-       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1794993543435_b6b19bc5e75b.jpg"
-      },
-      {
        "name": "할인율별로 고르는 겨울 아우터",
        "desc": "60% 이상만 모은 에디터 픽",
        "label": "",
        "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1795053526780_4b1f57c96e9e.jpg"
+      },
+      {
+       "name": "킥스 & 아우터 실시간 랭킹",
+       "desc": "지금 많이 찾는 인기 아이템",
+       "label": "",
+       "image": "https://image.msscdn.net/thumbnails/ocmp/contents/content/file_1795500892544_ee08655aff81.jpg"
       }
      ]
     }
