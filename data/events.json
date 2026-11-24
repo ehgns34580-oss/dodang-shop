@@ -2,7 +2,7 @@
  "name": "무진장 26 겨울 블랙프라이데이",
  "url": "https://www.musinsa.com/campaign/mujinjangsale/teasing",
  "period": "",
- "fetched": "2026-11-24T01:26+00:00",
+ "fetched": "2026-11-24T04:16+00:00",
  "coupons": [],
  "brand_days": [
   {
@@ -85,6 +85,13 @@
    "title": "방한 아이템 추천",
    "sub": "",
    "tag": "방한"
+  },
+  {
+   "start": "2026-11-22T19:00:00+09:00",
+   "end": "2026-12-03T00:00:00+09:00",
+   "title": "기간 한정 득템 찬스",
+   "sub": "",
+   "tag": "득템 추천"
   },
   {
    "start": "2026-11-23T19:00:00+09:00",
