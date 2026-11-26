@@ -51,17 +51,6 @@
      "link": "https://www.musinsa.com/products/3481219?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xxe5s0opX"
     },
     {
-     "goods_no": "5706908",
-     "brand": "데이",
-     "name": "스웨이드 레더 무스탕 자켓_BLACK",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20251110/5706908/5706908_17663797181011_500.jpg",
-     "price": 66500,
-     "normal_price": 124000,
-     "discount": 46,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/5706908?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XEAX9XvNE"
-    },
-    {
      "goods_no": "4361477",
      "brand": "엔도어",
      "name": "Short mac coat (black)",
@@ -95,15 +84,15 @@
      "link": "https://www.musinsa.com/products/7474958?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XDPEQXPYC"
     },
     {
-     "goods_no": "4512999",
-     "brand": "엘무드",
-     "name": "그레이웨일 더블 코트 펠트로 블랙",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20241014/4512999/4512999_17951643371877_500.jpg",
-     "price": 253730,
-     "normal_price": 398000,
-     "discount": 36,
+     "goods_no": "5706908",
+     "brand": "데이",
+     "name": "스웨이드 레더 무스탕 자켓_BLACK",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20251110/5706908/5706908_17663797181011_500.jpg",
+     "price": 66500,
+     "normal_price": 124000,
+     "discount": 46,
      "sold_out": false,
-     "link": "https://www.musinsa.com/products/4512999?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XgyrlePhl"
+     "link": "https://www.musinsa.com/products/5706908?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XEAX9XvNE"
     },
     {
      "goods_no": "7225475",
@@ -280,6 +269,17 @@
      "discount": 28,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/2825493?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XvhUOB4yI"
+    },
+    {
+     "goods_no": "4512999",
+     "brand": "엘무드",
+     "name": "그레이웨일 더블 코트 펠트로 블랙",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20241014/4512999/4512999_17951643371877_500.jpg",
+     "price": 253730,
+     "normal_price": 398000,
+     "discount": 36,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/4512999?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XgyrlePhl"
     }
    ]
   },
@@ -289,17 +289,6 @@
    "description": "도댕패션 실제 판매량 기준",
    "order": 99,
    "goods": [
-    {
-     "goods_no": "5717292",
-     "brand": "워크온바디오프",
-     "name": "[옷입는바보PICK] 레스티드 세미 오버핏 모크넥 니트 (4color)",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20251111/5717292/5717292_17951393824480_500.jpg",
-     "price": 19500,
-     "normal_price": 36000,
-     "discount": 46,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/5717292?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X1FMBZILE"
-    },
     {
      "goods_no": "5453617",
      "brand": "수아레",
@@ -321,28 +310,6 @@
      "discount": 48,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/2723767?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=X2NEp49vY"
-    },
-    {
-     "goods_no": "5988251",
-     "brand": "노이어",
-     "name": "실키 라운드넥 니트 (다크그레이)",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260205/5988251/5988251_17702914549062_500.jpg",
-     "price": 39900,
-     "normal_price": 75000,
-     "discount": 47,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/5988251?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XEGL64CZB"
-    },
-    {
-     "goods_no": "7050461",
-     "brand": "웬즈데이오아시스",
-     "name": "[NERDKING] 워셔블 크롭 브이넥 니트_4COLOR",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260811/7050461/7050461_17878758362465_500.jpg",
-     "price": 36850,
-     "normal_price": 67000,
-     "discount": 45,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/7050461?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XKN3J9DQV"
     },
     {
      "goods_no": "7122842",
@@ -367,17 +334,6 @@
      "link": "https://www.musinsa.com/products/7001796?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XFU50XR98"
     },
     {
-     "goods_no": "5487078",
-     "brand": "후브스",
-     "name": "[2PACK] 울 블랜드 크롭 니트",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20250918/5487078/5487078_17582845187951_500.jpg",
-     "price": 59800,
-     "normal_price": 121000,
-     "discount": 51,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/5487078?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XROUP4PCW"
-    },
-    {
      "goods_no": "6987937",
      "brand": "수아레",
      "name": "데일리 브이넥 니트 - 6 COLOR",
@@ -387,28 +343,6 @@
      "discount": 48,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/6987937?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XZC0C69PR"
-    },
-    {
-     "goods_no": "7458210",
-     "brand": "웬즈데이오아시스",
-     "name": "[젠플록스 콜라보] 워셔블 컴포트 세미 크롭 헨리넥 니트_5COLOR",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261006/7458210/7458210_17921326778671_500.jpg",
-     "price": 28900,
-     "normal_price": 57800,
-     "discount": 50,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/7458210?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XSKDQU32M"
-    },
-    {
-     "goods_no": "7102796",
-     "brand": "더니트컴퍼니",
-     "name": "울 캐시미어 브이넥 스웨터 7color",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260819/7102796/7102796_17872903503964_500.jpg",
-     "price": 69660,
-     "normal_price": 129000,
-     "discount": 46,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/7102796?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XVOECCW8G"
     },
     {
      "goods_no": "2757451",
@@ -433,15 +367,26 @@
      "link": "https://www.musinsa.com/products/2139132?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X5N028HV5"
     },
     {
-     "goods_no": "7455031",
-     "brand": "데이",
-     "name": "크롭 에어울 라운드 니트_6 COLOR",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261004/7455031/7455031_17913414149446_500.jpg",
-     "price": 29900,
-     "normal_price": 55000,
+     "goods_no": "5487078",
+     "brand": "후브스",
+     "name": "[2PACK] 울 블랜드 크롭 니트",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20250918/5487078/5487078_17582845187951_500.jpg",
+     "price": 59800,
+     "normal_price": 121000,
+     "discount": 51,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/5487078?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XROUP4PCW"
+    },
+    {
+     "goods_no": "5717292",
+     "brand": "워크온바디오프",
+     "name": "[옷입는바보PICK] 레스티드 세미 오버핏 모크넥 니트 (4color)",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20251111/5717292/5717292_17951393824480_500.jpg",
+     "price": 19500,
+     "normal_price": 36000,
      "discount": 46,
      "sold_out": false,
-     "link": "https://www.musinsa.com/products/7455031?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XA979SDBZ"
+     "link": "https://www.musinsa.com/products/5717292?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X1FMBZILE"
     },
     {
      "goods_no": "5468292",
@@ -455,17 +400,6 @@
      "link": "https://www.musinsa.com/products/5468292?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XKAZO3CBC"
     },
     {
-     "goods_no": "6987920",
-     "brand": "수아레",
-     "name": "데일리 크롭 카라 니트 - 5 COLOR",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260804/6987920/6987920_17866906940704_500.jpg",
-     "price": 28100,
-     "normal_price": 52000,
-     "discount": 46,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/6987920?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XKIB4U8O2"
-    },
-    {
      "goods_no": "5290694",
      "brand": "드로우핏",
      "name": "[서강준PICK] 소프트 울 크롭 라운드 니트 [7color]",
@@ -477,15 +411,26 @@
      "link": "https://www.musinsa.com/products/5290694?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xm2dIM2Ks"
     },
     {
-     "goods_no": "7348728",
-     "brand": "마인드브릿지",
-     "name": "[스토커즈 PICK] [ON]울 혼방 쿼터 집업 세미 오버핏 니트 - 4color",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260916/7348728/7348728_17923838587076_500.jpg",
-     "price": 37900,
-     "normal_price": 69900,
+     "goods_no": "7282189",
+     "brand": "디미트리블랙",
+     "name": "[DIMITRI×삭형] © 모두의 SUPIMA® 코튼 니트_(헨리넥) 3COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260909/7282189/7282189_17897090388279_500.jpg",
+     "price": 39900,
+     "normal_price": 55500,
+     "discount": 28,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7282189?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XZ5Q9ZRQZ"
+    },
+    {
+     "goods_no": "6987920",
+     "brand": "수아레",
+     "name": "데일리 크롭 카라 니트 - 5 COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260804/6987920/6987920_17866906940704_500.jpg",
+     "price": 28100,
+     "normal_price": 52000,
      "discount": 46,
      "sold_out": false,
-     "link": "https://www.musinsa.com/products/7348728?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XTNZM20QR"
+     "link": "https://www.musinsa.com/products/6987920?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XKIB4U8O2"
     },
     {
      "goods_no": "4450419",
@@ -532,6 +477,28 @@
      "link": "https://www.musinsa.com/products/2139143?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XZDYZLG0K"
     },
     {
+     "goods_no": "7458210",
+     "brand": "웬즈데이오아시스",
+     "name": "[젠플록스 콜라보] 워셔블 컴포트 세미 크롭 헨리넥 니트_5COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261006/7458210/7458210_17921326778671_500.jpg",
+     "price": 28900,
+     "normal_price": 57800,
+     "discount": 50,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7458210?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XSKDQU32M"
+    },
+    {
+     "goods_no": "7455031",
+     "brand": "데이",
+     "name": "크롭 에어울 라운드 니트_6 COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261004/7455031/7455031_17913414149446_500.jpg",
+     "price": 29900,
+     "normal_price": 55000,
+     "discount": 46,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7455031?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XA979SDBZ"
+    },
+    {
      "goods_no": "4285909",
      "brand": "언탭트 스튜디오",
      "name": "오버핏 케이블 라운드 니트 6COLOR",
@@ -541,6 +508,28 @@
      "discount": 50,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/4285909?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XJL1F6A9N"
+    },
+    {
+     "goods_no": "7102796",
+     "brand": "더니트컴퍼니",
+     "name": "울 캐시미어 브이넥 스웨터 7color",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260819/7102796/7102796_17872903503964_500.jpg",
+     "price": 69660,
+     "normal_price": 129000,
+     "discount": 46,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7102796?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XVOECCW8G"
+    },
+    {
+     "goods_no": "7348728",
+     "brand": "마인드브릿지",
+     "name": "[스토커즈 PICK] [ON]울 혼방 쿼터 집업 세미 오버핏 니트 - 4color",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260916/7348728/7348728_17923838587076_500.jpg",
+     "price": 37900,
+     "normal_price": 69900,
+     "discount": 46,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7348728?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XTNZM20QR"
     },
     {
      "goods_no": "5468530",
@@ -554,15 +543,26 @@
      "link": "https://www.musinsa.com/products/5468530?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XBIPVUKFA"
     },
     {
-     "goods_no": "7282189",
-     "brand": "디미트리블랙",
-     "name": "[DIMITRI×삭형] © 모두의 SUPIMA® 코튼 니트_(헨리넥) 3COLOR",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260909/7282189/7282189_17897090388279_500.jpg",
+     "goods_no": "5988251",
+     "brand": "노이어",
+     "name": "실키 라운드넥 니트 (다크그레이)",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260205/5988251/5988251_17702914549062_500.jpg",
      "price": 39900,
-     "normal_price": 55500,
-     "discount": 28,
+     "normal_price": 75000,
+     "discount": 47,
      "sold_out": false,
-     "link": "https://www.musinsa.com/products/7282189?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XZ5Q9ZRQZ"
+     "link": "https://www.musinsa.com/products/5988251?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XEGL64CZB"
+    },
+    {
+     "goods_no": "7050461",
+     "brand": "웬즈데이오아시스",
+     "name": "[NERDKING] 워셔블 크롭 브이넥 니트_4COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260811/7050461/7050461_17878758362465_500.jpg",
+     "price": 36850,
+     "normal_price": 67000,
+     "discount": 45,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7050461?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XKN3J9DQV"
     }
    ]
   },
@@ -584,17 +584,6 @@
      "link": "https://www.musinsa.com/products/5717317?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XsBmMXixB"
     },
     {
-     "goods_no": "5682006",
-     "brand": "텍스",
-     "name": "TX304 커브드 배기 벌룬 데님 (블랙)",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20251104/5682006/5682006_17808938363291_500.jpg",
-     "price": 29750,
-     "normal_price": 85000,
-     "discount": 65,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/5682006?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XB1AGVZ4C"
-    },
-    {
      "goods_no": "4750069",
      "brand": "워크온바디오프",
      "name": "[패션플래닛PICK] [사계절/기모] 레베 세미 와이드 원턱 슬랙스 (3color)",
@@ -606,15 +595,37 @@
      "link": "https://www.musinsa.com/products/4750069?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xt8JqASGX"
     },
     {
-     "goods_no": "2578996",
-     "brand": "시그니처",
-     "name": "[기모선택] 더블턱 와이드 슬랙스[블랙]",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20220524/2578996/2578996_17870331293023_500.jpg",
-     "price": 29900,
-     "normal_price": 59000,
-     "discount": 49,
+     "goods_no": "7009617",
+     "brand": "아워데이즈",
+     "name": "[젠플록스X아워데이즈] 세미 커브드 치노 팬츠 [6COLORS]",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260806/7009617/7009617_17949848608188_500.jpg",
+     "price": 39680,
+     "normal_price": 64000,
+     "discount": 38,
      "sold_out": false,
-     "link": "https://www.musinsa.com/products/2578996?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XnyEOw6xM"
+     "link": "https://www.musinsa.com/products/7009617?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X300K237V"
+    },
+    {
+     "goods_no": "6610402",
+     "brand": "무신사 스탠다드",
+     "name": "헤비웨이트 속기모 세미 와이드 히든 밴딩 슬랙스 [블랙]",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260604/6610402/6610402_17907546778690_500.jpg",
+     "price": 47990,
+     "normal_price": 59900,
+     "discount": 20,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/6610402?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XR6SEQZXN"
+    },
+    {
+     "goods_no": "5682006",
+     "brand": "텍스",
+     "name": "TX304 커브드 배기 벌룬 데님 (블랙)",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20251104/5682006/5682006_17808938363291_500.jpg",
+     "price": 29750,
+     "normal_price": 85000,
+     "discount": 65,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/5682006?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XB1AGVZ4C"
     },
     {
      "goods_no": "3690591",
@@ -626,6 +637,17 @@
      "discount": 67,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/3690591?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XVEMZRUK1"
+    },
+    {
+     "goods_no": "2578996",
+     "brand": "시그니처",
+     "name": "[기모선택] 더블턱 와이드 슬랙스[블랙]",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20220524/2578996/2578996_17870331293023_500.jpg",
+     "price": 29900,
+     "normal_price": 59000,
+     "discount": 49,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/2578996?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XnyEOw6xM"
     },
     {
      "goods_no": "4695508",
@@ -672,17 +694,6 @@
      "link": "https://www.musinsa.com/products/2578997?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XwubCA70O"
     },
     {
-     "goods_no": "7051965",
-     "brand": "디미트리블랙",
-     "name": "[기모 선택] [10주년기획] © 모두의 에센셜 데님 팬츠_(커브드 핏) 4 COLOR",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260811/7051965/7051965_17901357571385_500.jpg",
-     "price": 27400,
-     "normal_price": 50000,
-     "discount": 45,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/7051965?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X72IHLYC7"
-    },
-    {
      "goods_no": "1149329",
      "brand": "무신사 스탠다드",
      "name": "세미 와이드 히든 밴딩 슬랙스 [블랙]",
@@ -692,17 +703,6 @@
      "discount": 34,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/1149329?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XVWG94XTD"
-    },
-    {
-     "goods_no": "6610402",
-     "brand": "무신사 스탠다드",
-     "name": "헤비웨이트 속기모 세미 와이드 히든 밴딩 슬랙스 [블랙]",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260604/6610402/6610402_17907546778690_500.jpg",
-     "price": 47990,
-     "normal_price": 59900,
-     "discount": 20,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/6610402?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XR6SEQZXN"
     },
     {
      "goods_no": "5864297",
@@ -815,6 +815,17 @@
      "link": "https://www.musinsa.com/products/5358816?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XbBk4TRW8"
     },
     {
+     "goods_no": "7051965",
+     "brand": "디미트리블랙",
+     "name": "[기모 선택] [10주년기획] © 모두의 에센셜 데님 팬츠_(커브드 핏) 4 COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260811/7051965/7051965_17901357571385_500.jpg",
+     "price": 27400,
+     "normal_price": 50000,
+     "discount": 45,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7051965?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X72IHLYC7"
+    },
+    {
      "goods_no": "1666443",
      "brand": "무신사 스탠다드",
      "name": "와이드 데님 팬츠 [크림]",
@@ -867,6 +878,17 @@
      "link": "https://www.musinsa.com/products/7109260?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XKP5UCNHR"
     },
     {
+     "goods_no": "1220731",
+     "brand": "무신사 스탠다드",
+     "name": "사피아노 신세틱 레더 벨트_30mm",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20191112/1220731/1220731_17816824726051_500.jpg",
+     "price": 10990,
+     "normal_price": 15900,
+     "discount": 31,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/1220731?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=X7YkdMCev"
+    },
+    {
      "goods_no": "7011611",
      "brand": "더니트컴퍼니",
      "name": "[스토커즈 콜라보] 워셔블 에센셜 크루넥 니트 10color",
@@ -878,15 +900,15 @@
      "link": "https://www.musinsa.com/products/7011611?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X7Q159JAX"
     },
     {
-     "goods_no": "7072533",
-     "brand": "데이",
-     "name": "[기모버전 추가] 세미크롭 골지 긴팔 헨리넥 티셔츠_5 COLOR",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260813/7072533/7072533_17884180644235_500.jpg",
-     "price": 23130,
-     "normal_price": 42500,
-     "discount": 46,
+     "goods_no": "3390508",
+     "brand": "스탠다드에러",
+     "name": "[오정규 PICK] 87-STAN009 [퀼팅추가] 스탠다드 블루종 스웨이드 자켓 블랙",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230630/3390508/3390508_17944658102031_500.jpg",
+     "price": 27930,
+     "normal_price": 89000,
+     "discount": 69,
      "sold_out": false,
-     "link": "https://www.musinsa.com/products/7072533?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XFUPMRKRV"
+     "link": "https://www.musinsa.com/products/3390508?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XYOYaKx9m"
     },
     {
      "goods_no": "5444689",
@@ -900,15 +922,15 @@
      "link": "https://www.musinsa.com/products/5444689?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XsmPMmsOJ"
     },
     {
-     "goods_no": "1220731",
-     "brand": "무신사 스탠다드",
-     "name": "사피아노 신세틱 레더 벨트_30mm",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20191112/1220731/1220731_17816824726051_500.jpg",
-     "price": 10990,
-     "normal_price": 15900,
-     "discount": 31,
+     "goods_no": "404474",
+     "brand": "브렌슨",
+     "name": "베이직 긴팔티셔츠 2종 ( 5Color )",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20160902/404474/404474_17951398269285_500.jpg",
+     "price": 9900,
+     "normal_price": 24900,
+     "discount": 60,
      "sold_out": false,
-     "link": "https://www.musinsa.com/products/1220731?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=X7YkdMCev"
+     "link": "https://www.musinsa.com/products/404474?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X9TKGWEGA"
     },
     {
      "goods_no": "7011605",
@@ -922,15 +944,15 @@
      "link": "https://www.musinsa.com/products/7011605?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XK79E9LL3"
     },
     {
-     "goods_no": "404474",
-     "brand": "브렌슨",
-     "name": "베이직 긴팔티셔츠 2종 ( 5Color )",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20160902/404474/404474_17951398269285_500.jpg",
-     "price": 9900,
-     "normal_price": 24900,
-     "discount": 60,
+     "goods_no": "7072533",
+     "brand": "데이",
+     "name": "[기모버전 추가] 세미크롭 골지 긴팔 헨리넥 티셔츠_5 COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260813/7072533/7072533_17884180644235_500.jpg",
+     "price": 23130,
+     "normal_price": 42500,
+     "discount": 46,
      "sold_out": false,
-     "link": "https://www.musinsa.com/products/404474?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X9TKGWEGA"
+     "link": "https://www.musinsa.com/products/7072533?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XFUPMRKRV"
     },
     {
      "goods_no": "1168906",
@@ -964,17 +986,6 @@
      "discount": 14,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/1648533?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X9RBRB7C7"
-    },
-    {
-     "goods_no": "3390508",
-     "brand": "스탠다드에러",
-     "name": "[오정규 PICK] 87-STAN009 [퀼팅추가] 스탠다드 블루종 스웨이드 자켓 블랙",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230630/3390508/3390508_17944658102031_500.jpg",
-     "price": 27930,
-     "normal_price": 89000,
-     "discount": 69,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/3390508?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XYOYaKx9m"
     },
     {
      "goods_no": "5666648",
@@ -1128,6 +1139,17 @@
      "link": "https://www.musinsa.com/products/2098325?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XGGzskqfx"
     },
     {
+     "goods_no": "7588105",
+     "brand": "디미트리블랙",
+     "name": "[DIMITRI X 젠플록스] © 모두의 캐시미어 발마칸 코트_2 COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261022/7588105/7588105_17948996852306_500.jpg",
+     "price": 129000,
+     "normal_price": 198800,
+     "discount": 35,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7588105?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X5WG8H4EP"
+    },
+    {
      "goods_no": "4361477",
      "brand": "엔도어",
      "name": "Short mac coat (black)",
@@ -1181,17 +1203,6 @@
      "discount": 10,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/3481219?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xxe5s0opX"
-    },
-    {
-     "goods_no": "7588105",
-     "brand": "디미트리블랙",
-     "name": "[DIMITRI X 젠플록스] © 모두의 캐시미어 발마칸 코트_2 COLOR",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261022/7588105/7588105_17948996852306_500.jpg",
-     "price": 129000,
-     "normal_price": 198800,
-     "discount": 35,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/7588105?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X5WG8H4EP"
     },
     {
      "goods_no": "2116411",
@@ -1290,17 +1301,6 @@
      "link": "https://www.musinsa.com/products/7108774?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XX0X1081Q"
     },
     {
-     "goods_no": "7487038",
-     "brand": "디미트리블랙",
-     "name": "[10주년기획] © 모두의 DIVO® 구스다운 자켓_ 3 COLOR",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261011/7487038/7487038_17948999464678_500.jpg",
-     "price": 129000,
-     "normal_price": 249900,
-     "discount": 48,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/7487038?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XQARBTMDD"
-    },
-    {
      "goods_no": "3440439",
      "brand": "커스텀어클락",
      "name": "커브드 투웨이 항공 패딩 점퍼 3 COLOR COOSJP045",
@@ -1310,6 +1310,17 @@
      "discount": 40,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/3440439?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XA5vZrP7x"
+    },
+    {
+     "goods_no": "7487038",
+     "brand": "디미트리블랙",
+     "name": "[10주년기획] © 모두의 DIVO® 구스다운 자켓_ 3 COLOR",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20261011/7487038/7487038_17948999464678_500.jpg",
+     "price": 129000,
+     "normal_price": 249900,
+     "discount": 48,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/7487038?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XQARBTMDD"
     },
     {
      "goods_no": "5532467",
@@ -1323,17 +1334,6 @@
      "link": "https://www.musinsa.com/products/5532467?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XQ0yVpAIz"
     },
     {
-     "goods_no": "6966618",
-     "brand": "언탭트 스튜디오",
-     "name": "2WAY 에센셜 코듀로이 푸퍼 패딩 3Color",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260731/6966618/6966618_17896957964202_500.jpg",
-     "price": 48500,
-     "normal_price": 97000,
-     "discount": 50,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/6966618?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XTSFUZ122"
-    },
-    {
      "goods_no": "7063191",
      "brand": "비긴202",
      "name": "커브라이트 다운 점퍼 v2 [라이트 그레이]",
@@ -1343,6 +1343,17 @@
      "discount": 35,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/7063191?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X7N7EPYCZ"
+    },
+    {
+     "goods_no": "6966618",
+     "brand": "언탭트 스튜디오",
+     "name": "2WAY 에센셜 코듀로이 푸퍼 패딩 3Color",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260731/6966618/6966618_17896957964202_500.jpg",
+     "price": 48500,
+     "normal_price": 97000,
+     "discount": 50,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/6966618?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XTSFUZ122"
     },
     {
      "goods_no": "3585225",
@@ -1809,17 +1820,6 @@
      "link": "https://www.musinsa.com/products/7544361?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XQVIKDJW9"
     },
     {
-     "goods_no": "4512999",
-     "brand": "엘무드",
-     "name": "그레이웨일 더블 코트 펠트로 블랙",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20241014/4512999/4512999_17951643371877_500.jpg",
-     "price": 253730,
-     "normal_price": 398000,
-     "discount": 36,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/4512999?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XgyrlePhl"
-    },
-    {
      "goods_no": "1115974",
      "brand": "인사일런스",
      "name": "캐시미어 더블 롱 코트 BLACK",
@@ -1917,6 +1917,17 @@
      "discount": 10,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/3405537?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XACOC5217"
+    },
+    {
+     "goods_no": "4512999",
+     "brand": "엘무드",
+     "name": "그레이웨일 더블 코트 펠트로 블랙",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20241014/4512999/4512999_17951643371877_500.jpg",
+     "price": 253730,
+     "normal_price": 398000,
+     "discount": 36,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/4512999?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XgyrlePhl"
     },
     {
      "goods_no": "4512998",
@@ -7075,9 +7086,9 @@
      "brand": "마지언타이틀",
      "name": "Sortie Bag / Suede Brown",
      "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260917/7359351/7359351_17896372995267_500.jpg",
-     "price": 162190,
+     "price": 167200,
      "normal_price": 209000,
-     "discount": 22,
+     "discount": 20,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/7359351?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XR2M0XP4C"
     },
@@ -8125,6 +8136,17 @@
      "link": "https://www.musinsa.com/products/4361477?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XWjRCqi4Y"
     },
     {
+     "goods_no": "6830699",
+     "brand": "파브레가",
+     "name": "리치 울 블렌드 와이드 슬랙스 (카키 브라운)",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260713/6830699/6830699_17949733216379_500.jpg",
+     "price": 77600,
+     "normal_price": 97000,
+     "discount": 20,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/6830699?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XD2LJL0FI"
+    },
+    {
      "goods_no": "5316866",
      "brand": "엘무드",
      "name": "그레이웨일 싱글 코트 세피아 브라운",
@@ -8167,17 +8189,6 @@
      "discount": 28,
      "sold_out": true,
      "link": "https://www.musinsa.com/products/7023604?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XM6WXGFIG"
-    },
-    {
-     "goods_no": "6830699",
-     "brand": "파브레가",
-     "name": "리치 울 블렌드 와이드 슬랙스 (카키 브라운)",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260713/6830699/6830699_17949733216379_500.jpg",
-     "price": 77600,
-     "normal_price": 97000,
-     "discount": 20,
-     "sold_out": true,
-     "link": "https://www.musinsa.com/products/6830699?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XD2LJL0FI"
     }
    ]
   },
@@ -8479,6 +8490,17 @@
      "link": "https://www.musinsa.com/products/7054720?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XK0OMEWHY"
     },
     {
+     "goods_no": "6830699",
+     "brand": "파브레가",
+     "name": "리치 울 블렌드 와이드 슬랙스 (카키 브라운)",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260713/6830699/6830699_17949733216379_500.jpg",
+     "price": 77600,
+     "normal_price": 97000,
+     "discount": 20,
+     "sold_out": false,
+     "link": "https://www.musinsa.com/products/6830699?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XD2LJL0FI"
+    },
+    {
      "goods_no": "7074674",
      "brand": "로맨틱무브",
      "name": "[클라우드팩] 라운지 폴드 로퍼 R26M160 (워싱블랙)",
@@ -8510,17 +8532,6 @@
      "discount": 20,
      "sold_out": true,
      "link": "https://www.musinsa.com/products/7054726?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XQCIHGF0E"
-    },
-    {
-     "goods_no": "6830699",
-     "brand": "파브레가",
-     "name": "리치 울 블렌드 와이드 슬랙스 (카키 브라운)",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260713/6830699/6830699_17949733216379_500.jpg",
-     "price": 77600,
-     "normal_price": 97000,
-     "discount": 20,
-     "sold_out": true,
-     "link": "https://www.musinsa.com/products/6830699?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XD2LJL0FI"
     }
    ]
   },
@@ -10922,17 +10933,6 @@
      "link": "https://www.musinsa.com/products/5599260?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XhnYKwimY"
     },
     {
-     "goods_no": "5434329",
-     "brand": "노이어",
-     "name": "알파카 크롭 집업 자켓 (블랙)",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20250910/5434329/5434329_17574703093546_500.jpg",
-     "price": 204750,
-     "normal_price": 325000,
-     "discount": 37,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/5434329?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XfCxvaHAc"
-    },
-    {
      "goods_no": "5317845",
      "brand": "벨리에",
      "name": "트루 와이드 데님 팬츠 - 로우 블랙",
@@ -10997,6 +10997,17 @@
      "discount": 33,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/1961481?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=X5koLm2Ag"
+    },
+    {
+     "goods_no": "5434329",
+     "brand": "노이어",
+     "name": "알파카 크롭 집업 자켓 (블랙)",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20250910/5434329/5434329_17574703093546_500.jpg",
+     "price": 204750,
+     "normal_price": 325000,
+     "discount": 37,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/5434329?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XfCxvaHAc"
     },
     {
      "goods_no": "3585125",
@@ -11368,9 +11379,9 @@
      "brand": "밀로 아카이브",
      "name": "데님 로우 셔링백 [페이드 블랙]",
      "image": "https://image.msscdn.net/thumbnails/images/goods_img/20250909/5425195/5425195_17785499957890_500.jpg",
-     "price": 88070,
+     "price": 89600,
      "normal_price": 128000,
-     "discount": 31,
+     "discount": 30,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/5425195?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xl2prRh1V"
     },
@@ -14815,9 +14826,9 @@
      "brand": "비긴202",
      "name": "소프트 캐시미어 하이넥 코트 [멜란지 차콜]",
      "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260812/7062717/7062717_17927239674027_500.jpg",
-     "price": 300300,
+     "price": 240240,
      "normal_price": 429000,
-     "discount": 30,
+     "discount": 44,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/7062717?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X20JGH5XU"
     },
@@ -14866,17 +14877,6 @@
      "link": "https://www.musinsa.com/products/5316867?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xx3Rhq9ZQ"
     },
     {
-     "goods_no": "4512999",
-     "brand": "엘무드",
-     "name": "그레이웨일 더블 코트 펠트로 블랙",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20241014/4512999/4512999_17951643371877_500.jpg",
-     "price": 253730,
-     "normal_price": 398000,
-     "discount": 36,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/4512999?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XgyrlePhl"
-    },
-    {
      "goods_no": "7034036",
      "brand": "엘무드",
      "name": "블라크 하이넥 코트 카키 베이지",
@@ -14919,6 +14919,17 @@
      "discount": 36,
      "sold_out": true,
      "link": "https://www.musinsa.com/products/4512998?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XlqhJPD2D"
+    },
+    {
+     "goods_no": "4512999",
+     "brand": "엘무드",
+     "name": "그레이웨일 더블 코트 펠트로 블랙",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20241014/4512999/4512999_17951643371877_500.jpg",
+     "price": 253730,
+     "normal_price": 398000,
+     "discount": 36,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/4512999?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XgyrlePhl"
     },
     {
      "goods_no": "7390717",
