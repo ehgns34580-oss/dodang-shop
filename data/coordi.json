@@ -1172,5 +1172,13 @@
   "frame": "oar1",
   "image": "https://i.ytimg.com/vi/cMH5b8vdRRQ/oar1.jpg",
   "score": 0.393
+ },
+ "pHAFeM_lOh0": {
+  "frame": "oar3",
+  "image": "https://i.ytimg.com/vi/pHAFeM_lOh0/oar3.jpg",
+  "score": 0.589,
+  "mask_ratio": 0.0,
+  "clean_v": 2,
+  "texts": 0
  }
 }
