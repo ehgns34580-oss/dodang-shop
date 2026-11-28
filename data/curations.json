@@ -9893,17 +9893,6 @@
      "link": "https://www.musinsa.com/products/4900729?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xqf12d7Om"
     },
     {
-     "goods_no": "3363795",
-     "brand": "유니온블루",
-     "name": "[DESK] NATURAL CHINO PANTS [WASHED BEIGE]",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230614/3363795/3363795_17769215542175_500.jpg",
-     "price": 100080,
-     "normal_price": 139000,
-     "discount": 28,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/3363795?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XDgTOqa74"
-    },
-    {
      "goods_no": "4750067",
      "brand": "워크온바디오프",
      "name": "[패션플래닛PICK] 레베 세미 와이드 원턱 슬랙스 [블랙]",
@@ -9946,6 +9935,17 @@
      "discount": 20,
      "sold_out": true,
      "link": "https://www.musinsa.com/products/5984698?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XYL9wsAFy"
+    },
+    {
+     "goods_no": "3363795",
+     "brand": "유니온블루",
+     "name": "[DESK] NATURAL CHINO PANTS [WASHED BEIGE]",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230614/3363795/3363795_17769215542175_500.jpg",
+     "price": 100080,
+     "normal_price": 139000,
+     "discount": 28,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/3363795?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XDgTOqa74"
     },
     {
      "goods_no": "4871126",
@@ -10310,17 +10310,6 @@
      "link": "https://www.musinsa.com/products/4900729?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xqf12d7Om"
     },
     {
-     "goods_no": "3363795",
-     "brand": "유니온블루",
-     "name": "[DESK] NATURAL CHINO PANTS [WASHED BEIGE]",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230614/3363795/3363795_17769215542175_500.jpg",
-     "price": 100080,
-     "normal_price": 139000,
-     "discount": 28,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/3363795?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XDgTOqa74"
-    },
-    {
      "goods_no": "5350574",
      "brand": "벨리에",
      "name": "미드 와이드 데님 팬츠 - 레일 인디고",
@@ -10418,6 +10407,17 @@
      "discount": 45,
      "sold_out": true,
      "link": "https://www.musinsa.com/products/4871126?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=Xg7ItUS1N"
+    },
+    {
+     "goods_no": "3363795",
+     "brand": "유니온블루",
+     "name": "[DESK] NATURAL CHINO PANTS [WASHED BEIGE]",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20230614/3363795/3363795_17769215542175_500.jpg",
+     "price": 100080,
+     "normal_price": 139000,
+     "discount": 28,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/3363795?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XDgTOqa74"
     },
     {
      "goods_no": "5984698",
