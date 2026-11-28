@@ -1181,5 +1181,13 @@
   "clean_v": 2,
   "texts": 0
  },
- "zuZCvTz2GBg": {}
+ "zuZCvTz2GBg": {},
+ "sgnDWaYm9Hw": {
+  "frame": "oar3",
+  "image": "https://i.ytimg.com/vi/sgnDWaYm9Hw/oar3.jpg",
+  "score": 0.526,
+  "mask_ratio": 0.034,
+  "clean_v": 2,
+  "texts": 1
+ }
 }
