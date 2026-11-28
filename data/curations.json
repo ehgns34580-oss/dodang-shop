@@ -7082,17 +7082,6 @@
      "link": "https://www.musinsa.com/products/7360112?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=XQM1WCRHQ"
     },
     {
-     "goods_no": "7140044",
-     "brand": "마지언타이틀",
-     "name": "Sortie Bag / Suede Black",
-     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260823/7140044/7140044_17896370830608_500.jpg",
-     "price": 168770,
-     "normal_price": 209000,
-     "discount": 19,
-     "sold_out": false,
-     "link": "https://www.musinsa.com/products/7140044?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X5JYQ8QYA"
-    },
-    {
      "goods_no": "7359351",
      "brand": "마지언타이틀",
      "name": "Sortie Bag / Suede Brown",
@@ -7267,6 +7256,17 @@
      "discount": 20,
      "sold_out": false,
      "link": "https://www.musinsa.com/products/4489271?utm_source=curator&utm_medium=if&utm_campaign=curator&utm_content=curator_curation_goodslink&utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&source=XvFAWThYz"
+    },
+    {
+     "goods_no": "7140044",
+     "brand": "마지언타이틀",
+     "name": "Sortie Bag / Suede Black",
+     "image": "https://image.msscdn.net/thumbnails/images/goods_img/20260823/7140044/7140044_17896370830608_500.jpg",
+     "price": 168770,
+     "normal_price": 209000,
+     "discount": 19,
+     "sold_out": true,
+     "link": "https://www.musinsa.com/products/7140044?utm_term=01JFNYQ7N0FDQ7RMX9C0Y6SRWP&utm_source=curator&utm_campaign=curator&utm_medium=if&utm_content=curator_curation_goodslink&source=X5JYQ8QYA"
     }
    ]
   },
